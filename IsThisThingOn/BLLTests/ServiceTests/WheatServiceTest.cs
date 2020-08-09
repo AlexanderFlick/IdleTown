@@ -29,6 +29,27 @@ namespace BLLTests.ServiceTests
             Assert.AreEqual(expected, actual);
         }
 
+        [Test]
+        public void WhenYouSellWheat_TotalDecreases()
+        {
+            var person = GenerateTestPerson();
+            _sut.Sell(person);
+            var expected = 4;
+            var actual = person.wheatTotal;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void CantSellWheatIfTotalIsZero()
+        {
+            var person = GenerateTestPerson();
+            person.wheatTotal = 0;
+            _sut.Sell(person);
+            var expected = 0;
+            var actual = person.wheatTotal;
+            Assert.AreEqual(expected, actual);
+        }
+
         private Person GenerateTestPerson()
         {
             return new Person
