@@ -5,9 +5,6 @@ using System.Windows;
 
 namespace IsThisThingOn
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         Person person = new Person();
@@ -35,6 +32,18 @@ namespace IsThisThingOn
             UpdateText();
         }
 
+        private void HireFarmer(object sender, RoutedEventArgs e)
+        {
+            wheat.HireFarmer(person);
+            UpdateText();
+        }
+
+        private void BuyStorage(object sender, RoutedEventArgs e)
+        {
+            wheat.BuyStorage(person);
+            UpdateText();
+        }
+
         private void UpdateText()
         {
             goldText.Text = "Total Gold: " + person.Gold.ToString();
@@ -48,18 +57,6 @@ namespace IsThisThingOn
             storageIncrease.Text = "+" + person.ChestIncreaseWheatMax + " Max Wheat Storage";
             storageCost.Text = "Storage Gold Cost: " + person.StorageCost;
 
-        }
-
-        private void HireFarmer(object sender, RoutedEventArgs e)
-        {
-            wheat.HireFarmer(person);
-            UpdateText();
-        }
-
-        private void BuyStorage(object sender, RoutedEventArgs e)
-        {
-            wheat.BuyStorage(person);
-            UpdateText();
         }
     }
 }
