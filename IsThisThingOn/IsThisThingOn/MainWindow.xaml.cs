@@ -9,14 +9,10 @@ namespace IsThisThingOn
     {
         Person person = new Person();
         private readonly IWheatService wheat;
-        private readonly ITimerService timer;
-        private readonly IItemService itemService;
 
-        public MainWindow(IWheatService wheat, ITimerService timer, IItemService itemService)
+        public MainWindow(IWheatService wheat)
         {
             this.wheat = wheat;
-            this.timer = timer;
-            this.itemService = itemService;
             InitializeComponent();
         }
 
@@ -54,7 +50,7 @@ namespace IsThisThingOn
             farmerGain.Text = "+" + person.WheatPerSec + " Wheat/sec";
             farmerCost.Text = "Gold To Hire Farmer: " + person.FarmerGoldCost;
             storageTotal.Text = "Total Warehouses: " + person.StorageUnits;
-            storageIncrease.Text = "+" + person.ChestIncreaseWheatMax + " Max Wheat Storage";
+            storageIncrease.Text = "+" + person.ChestIncreaseWheatMax + " Max Wheat";
             storageCost.Text = "Storage Gold Cost: " + person.StorageCost;
 
         }
