@@ -62,6 +62,17 @@ namespace BLLTests.ServiceTests
         }
 
         [Test]
+        public void DontEarnGoldIfWheatTotalIsZero()
+        {
+            var person = GenerateTestPerson();
+            person.WheatTotal = 0;
+            _sut.Sell(person);
+            var expected = 2;
+            var actual = person.Gold;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
         public void HireFarmerIfEnoughGold()
         {
             var person = GenerateTestPerson();
