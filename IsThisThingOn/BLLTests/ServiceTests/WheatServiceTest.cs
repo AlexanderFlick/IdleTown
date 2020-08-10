@@ -30,6 +30,17 @@ namespace BLLTests.ServiceTests
         }
 
         [Test]
+        public void CantGainMoreWheatThanMax()
+        {
+            var person = GenerateTestPerson();
+            person.WheatTotal = 10;
+            _sut.Gain(person);
+            var expected = 10;
+            var actual = person.WheatTotal;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
         public void WhenYouSellWheat_TotalDecreases()
         {
             var person = GenerateTestPerson();
@@ -66,6 +77,17 @@ namespace BLLTests.ServiceTests
             var person = GenerateTestPerson();
             _sut.BuyStorage(person);
             var expected = 1;
+            var actual = person.StorageUnits;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void CantBuyStorageIfShortGold()
+        {
+            var person = GenerateTestPerson();
+            person.StorageCost = 10;
+            _sut.BuyStorage(person);
+            var expected = 0;
             var actual = person.StorageUnits;
             Assert.AreEqual(expected, actual);
         }
