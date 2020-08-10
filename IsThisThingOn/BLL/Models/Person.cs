@@ -16,6 +16,8 @@ namespace BLL.Models
         public int WheatPerClick { get; set; } = 1;
         public int FarmerGoldCost { get; set; } = 4;
         public bool FarmerActive { get; set; } = false;
-        public int StorageUnits { get; set; } 
+        public int StorageUnits { get; set; }
+        public int StorageCost { get; set; } = 4;
+        public int ChestIncreaseWheatMax { get; set; } = 25;
     }
 }

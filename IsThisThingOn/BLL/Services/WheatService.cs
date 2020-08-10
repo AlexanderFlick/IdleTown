@@ -10,6 +10,7 @@ namespace BLL.Services
         void Gain(Person person);
         void Sell(Person person);
         void HireFarmer(Person person);
+        void BuyStorage(Person person);
     }
     public class WheatService : IWheatService
     {
@@ -46,6 +47,16 @@ namespace BLL.Services
                 person.Farmers++;
                 person.WheatPerClick++;
                 person.FarmerActive = true;
+            }
+        }
+
+        public void BuyStorage(Person person)
+        {
+            if(person.StorageCost <= person.Gold)
+            {
+                person.Gold -= person.StorageCost;
+                person.StorageUnits++;
+                person.WheatMax += person.ChestIncreaseWheatMax;
             }
         }
     }

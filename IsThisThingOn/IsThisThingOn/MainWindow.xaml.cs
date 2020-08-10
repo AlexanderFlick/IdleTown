@@ -13,11 +13,13 @@ namespace IsThisThingOn
         Person person = new Person();
         private readonly IWheatService wheat;
         private readonly ITimerService timer;
+        private readonly IItemService itemService;
 
-        public MainWindow(IWheatService wheat, ITimerService timer)
+        public MainWindow(IWheatService wheat, ITimerService timer, IItemService itemService)
         {
             this.wheat = wheat;
             this.timer = timer;
+            this.itemService = itemService;
             InitializeComponent();
         }
 
@@ -42,12 +44,21 @@ namespace IsThisThingOn
             totalFarmer.Text = "Total Farmers: " + person.Farmers;
             farmerGain.Text = "+" + person.WheatPerSec + " Wheat/sec";
             farmerCost.Text = "Gold To Hire Farmer: " + person.FarmerGoldCost;
+            storageTotal.Text = "Total Warehouses: " + person.StorageUnits;
+            storageIncrease.Text = "+" + person.ChestIncreaseWheatMax + " Max Wheat Storage";
+            storageCost.Text = "Storage Gold Cost: " + person.StorageCost;
 
         }
 
         private void HireFarmer(object sender, RoutedEventArgs e)
         {
             wheat.HireFarmer(person);
+            UpdateText();
+        }
+
+        private void BuyStorage(object sender, RoutedEventArgs e)
+        {
+            wheat.BuyStorage(person);
             UpdateText();
         }
     }
