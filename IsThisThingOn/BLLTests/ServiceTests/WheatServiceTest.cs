@@ -60,6 +60,16 @@ namespace BLLTests.ServiceTests
             Assert.AreEqual(expected, actual);
         }
 
+        [Test]
+        public void BuyStorageIfEnoughGold()
+        {
+            var person = GenerateTestPerson();
+            _sut.BuyStorage(person);
+            var expected = 1;
+            var actual = person.StorageUnits;
+            Assert.AreEqual(expected, actual);
+        }
+
         private Person GenerateTestPerson()
         {
             return new Person
@@ -71,6 +81,7 @@ namespace BLLTests.ServiceTests
                 EarnWheat = false,
                 Farmers = 0,
                 FarmerGoldCost = 1,
+                StorageCost = 1,
             };
         }
     }

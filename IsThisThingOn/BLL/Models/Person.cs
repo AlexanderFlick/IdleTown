@@ -19,5 +19,10 @@ namespace BLL.Models
         public int StorageUnits { get; set; }
         public int StorageCost { get; set; } = 4;
         public int ChestIncreaseWheatMax { get; set; } = 25;
+
+        //market
+        public int Markets { get; set; }
+        public int WheatPerSale { get; set; } = 2;
+
     }
 }
