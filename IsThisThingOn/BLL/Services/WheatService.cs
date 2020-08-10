@@ -9,6 +9,7 @@ namespace BLL.Services
     {
         void Gain(Person person);
         void Sell(Person person);
+        void HireFarmer(Person person);
     }
     public class WheatService : IWheatService
     {
@@ -20,19 +21,31 @@ namespace BLL.Services
         
         public void Gain(Person person)
         {
-            if(person.wheatTotal < person.wheatMax)
+            person.WheatTotal = _itemService.Gather(person.WheatTotal, person.WheatPerClick);
+            if (person.WheatTotal > person.WheatMax)
             {
-                person.wheatTotal = _itemService.Gather(person.wheatTotal);
+                person.WheatTotal = person.WheatMax;
             }
         }
 
         public void Sell(Person person)
         {
-            if (person.wheatTotal > 0)
+            if (person.WheatTotal > 0)
             {
                 person.EarnWheat = true;
-                person.gold = _itemService.GainGold(person.wheatPrice, person.gold, person.EarnWheat);
-                person.wheatTotal = _itemService.Sell(person.wheatTotal);
+                person.Gold = _itemService.GainGold(person.WheatPrice, person.Gold, person.EarnWheat);
+                person.WheatTotal = _itemService.Sell(person.WheatTotal);
+            }
+        }
+
+        public void HireFarmer(Person person)
+        {
+            if(person.FarmerGoldCost <= person.Gold)
+            {
+                person.Gold -= person.FarmerGoldCost;
+                person.Farmers++;
+                person.WheatPerClick++;
+                person.FarmerActive = true;
             }
         }
     }

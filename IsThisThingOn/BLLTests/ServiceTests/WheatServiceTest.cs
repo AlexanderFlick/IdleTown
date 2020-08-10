@@ -25,7 +25,7 @@ namespace BLLTests.ServiceTests
             var person = GenerateTestPerson();
             _sut.Gain(person);
             var expected = 6;
-            var actual = person.wheatTotal;
+            var actual = person.WheatTotal;
             Assert.AreEqual(expected, actual);
         }
 
@@ -35,7 +35,7 @@ namespace BLLTests.ServiceTests
             var person = GenerateTestPerson();
             _sut.Sell(person);
             var expected = 4;
-            var actual = person.wheatTotal;
+            var actual = person.WheatTotal;
             Assert.AreEqual(expected, actual);
         }
 
@@ -43,10 +43,20 @@ namespace BLLTests.ServiceTests
         public void CantSellWheatIfTotalIsZero()
         {
             var person = GenerateTestPerson();
-            person.wheatTotal = 0;
+            person.WheatTotal = 0;
             _sut.Sell(person);
             var expected = 0;
-            var actual = person.wheatTotal;
+            var actual = person.WheatTotal;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void HireFarmerIfEnoughGold()
+        {
+            var person = GenerateTestPerson();
+            _sut.HireFarmer(person);
+            var expected = 1;
+            var actual = person.Farmers;
             Assert.AreEqual(expected, actual);
         }
 
@@ -54,11 +64,13 @@ namespace BLLTests.ServiceTests
         {
             return new Person
             {
-                gold = 2,
-                wheatTotal = 5,
-                wheatMax = 10,
-                wheatPrice = 2,
+                Gold = 2,
+                WheatTotal = 5,
+                WheatMax = 10,
+                WheatPrice = 2,
                 EarnWheat = false,
+                Farmers = 0,
+                FarmerGoldCost = 1,
             };
         }
     }

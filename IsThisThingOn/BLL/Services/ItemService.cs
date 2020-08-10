@@ -2,15 +2,15 @@
 {
     public interface IItemService
     {
-        int Gather(int total);
+        int Gather(int total, int inc);
         int Sell(int total);
         int GainGold(int priceOfItem, int gold, bool earn);
     }
     public class ItemService : IItemService
     {
-        public int Gather(int total)
+        public int Gather(int total, int inc)
         {
-            total++;
+            total += inc;
             return total;
         }
 

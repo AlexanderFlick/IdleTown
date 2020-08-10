@@ -19,8 +19,9 @@ namespace BLLTests
         public void WhenYouGatherAnItem_TotalIncreases()
         {
             var startingAmount = 0;
+            var inc = 1;
             var expected = 1;
-            var actual = _sut.Gather(startingAmount);
+            var actual = _sut.Gather(startingAmount, inc);
             Assert.AreEqual(expected, actual);
         }
 
@@ -39,7 +40,7 @@ namespace BLLTests
             var person = GenerateTestPerson();
             person.EarnWheat = true;
             var expected = 4;
-            var actual = _sut.GainGold(person.wheatPrice, person.gold, person.EarnWheat);
+            var actual = _sut.GainGold(person.WheatPrice, person.Gold, person.EarnWheat);
             Assert.AreEqual(expected, actual);
         }
 
@@ -48,9 +49,9 @@ namespace BLLTests
         {
             var person = GenerateTestPerson();
             person.EarnWheat = false;
-            person.wheatTotal = 0;
+            person.WheatTotal = 0;
             var expected = 2;
-            var actual = _sut.GainGold(person.wheatPrice, person.gold, person.EarnWheat);
+            var actual = _sut.GainGold(person.WheatPrice, person.Gold, person.EarnWheat);
             Assert.AreEqual(expected, actual);
         }
 
@@ -58,10 +59,10 @@ namespace BLLTests
         {
             return new Person
             {
-                gold = 2,
-                wheatTotal = 5,
-                wheatMax = 10,
-                wheatPrice = 2,
+                Gold = 2,
+                WheatTotal = 5,
+                WheatMax = 10,
+                WheatPrice = 2,
                 EarnWheat = false,
             };
         }

@@ -6,10 +6,16 @@ namespace BLL.Models
 {
     public class Person
     {
-        public int gold { get; set; }
-        public int wheatTotal { get; set; }
-        public int wheatMax { get; set; } = 10;
-        public int wheatPrice { get; set; } = 2;
+        public int Gold { get; set; }
+        public int WheatTotal { get; set; }
+        public int WheatMax { get; set; } = 10;
+        public int WheatPrice { get; set; } = 2;
         public bool EarnWheat { get; set; } = false;
+        public int Farmers { get; set; }
+        public int WheatPerSec { get; set; } = 1;
+        public int WheatPerClick { get; set; } = 1;
+        public int FarmerGoldCost { get; set; } = 4;
+        public bool FarmerActive { get; set; } = false;
+        public int StorageUnits { get; set; } 
     }
 }

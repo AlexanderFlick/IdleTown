@@ -1,5 +1,6 @@
 ﻿using BLL.Models;
 using BLL.Services;
+using System;
 using System.Windows;
 
 namespace IsThisThingOn
@@ -11,10 +12,12 @@ namespace IsThisThingOn
     {
         Person person = new Person();
         private readonly IWheatService wheat;
+        private readonly ITimerService timer;
 
-        public MainWindow(IWheatService wheat)
+        public MainWindow(IWheatService wheat, ITimerService timer)
         {
             this.wheat = wheat;
+            this.timer = timer;
             InitializeComponent();
         }
 
@@ -32,11 +35,20 @@ namespace IsThisThingOn
 
         private void UpdateText()
         {
-            goldText.Text = "Total Gold: " + person.gold.ToString();
-            var wheatTotal = person.wheatTotal.ToString() + "/" + person.wheatMax.ToString();
-            wheatText.Text = wheatTotal;
-            var wheatPrice = "Price: $" + person.wheatPrice;
-            wheatPrices.Text = wheatPrice;
+            goldText.Text = "Total Gold: " + person.Gold.ToString();
+            wheatText.Text = "Wheat: " + person.WheatTotal.ToString() + "/" + person.WheatMax.ToString();
+            wheatPrices.Text = "Price: $" + person.WheatPrice;
+            wheatPerClick.Text = "Wheat Per Click: " + person.WheatPerClick;
+            totalFarmer.Text = "Total Farmers: " + person.Farmers;
+            farmerGain.Text = "+" + person.WheatPerSec + " Wheat/sec";
+            farmerCost.Text = "Gold To Hire Farmer: " + person.FarmerGoldCost;
+
+        }
+
+        private void HireFarmer(object sender, RoutedEventArgs e)
+        {
+            wheat.HireFarmer(person);
+            UpdateText();
         }
     }
 }

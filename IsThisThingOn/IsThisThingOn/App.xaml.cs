@@ -37,6 +37,7 @@ namespace IsThisThingOn
             services.AddTransient(typeof(MainWindow));
             services.AddSingleton<IItemService, ItemService>();
             services.AddSingleton<IWheatService, WheatService>();
+            services.AddSingleton<ITimerService, TimerService>();
         }
     }
 }
