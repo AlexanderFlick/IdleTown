@@ -22,6 +22,7 @@ namespace BLL.Models
 
         //market
         public int Markets { get; set; }
+        public int MarketCost { get; set; } = 4;
         public int WheatPerSale { get; set; } = 2;
 
     }

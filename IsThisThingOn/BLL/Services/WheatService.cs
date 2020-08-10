@@ -11,6 +11,7 @@ namespace BLL.Services
         void Sell(Person person);
         void HireFarmer(Person person);
         void BuyStorage(Person person);
+        void BuyMarket(Person person);
     }
     public class WheatService : IWheatService
     {
@@ -57,6 +58,16 @@ namespace BLL.Services
                 person.Gold -= person.StorageCost;
                 person.StorageUnits++;
                 person.WheatMax += person.ChestIncreaseWheatMax;
+            }
+        }
+
+        public void BuyMarket(Person person)
+        {
+            if(person.MarketCost <= person.Gold)
+            {
+                person.Gold -= person.MarketCost;
+                person.Markets++;
+                person.WheatPrice *= 2;
             }
         }
     }

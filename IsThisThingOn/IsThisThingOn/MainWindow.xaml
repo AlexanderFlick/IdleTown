@@ -7,20 +7,24 @@
         mc:Ignorable="d"
         Title="Idle Town" Height="500" Width="800">
     <Grid>
-        <Button Content="Gather" HorizontalAlignment="Left" Margin="63,127,0,0" VerticalAlignment="Top" Height="27" Width="73" Click="GetWheat"/>
-        <TextBlock Name="wheatText" HorizontalAlignment="Left" Margin="111,57,0,0" Text="Wheat: 0/10" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock Name="wheatPrices" HorizontalAlignment="Left" Margin="121,78,0,0" Text="Price: $2" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Button Content="Sell" HorizontalAlignment="Left" Margin="151,127,0,0" VerticalAlignment="Top" Height="27" Width="75" Click="SellWheat"/>
+        <Button Content="Gather" HorizontalAlignment="Left" Margin="300,144,0,0" VerticalAlignment="Top" Height="27" Width="73" Click="GetWheat"/>
+        <TextBlock Name="wheatText" HorizontalAlignment="Left" Margin="348,74,0,0" Text="Wheat: 0/10" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Name="wheatPrices" HorizontalAlignment="Left" Margin="358,95,0,0" Text="Price: $2" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button Content="Sell" HorizontalAlignment="Left" Margin="388,144,0,0" VerticalAlignment="Top" Height="27" Width="75" Click="SellWheat"/>
         <TextBlock Name="goldText" HorizontalAlignment="Left" Margin="347,27,0,0" Text="Gold Total: 0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="89" RenderTransformOrigin="-1.809,0.18"/>
-        <Button Content="Hire Farmer" HorizontalAlignment="Left" Margin="63,238,0,0" VerticalAlignment="Top" Width="163" Click="HireFarmer" Height="27"/>
-        <TextBlock Name="totalFarmer" HorizontalAlignment="Left" Margin="102,167,0,0" Text="Total Farmers: 0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock Name="farmerGain" HorizontalAlignment="Left" Margin="106,188,0,0" Text="+1 Wheat/click" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock Name="farmerCost" HorizontalAlignment="Left" Margin="84,209,0,0" Text="Gold To Hire Farmer: 20" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock Name="wheatPerClick" HorizontalAlignment="Left" Margin="96,99,0,0" Text="Wheat Per Click: 1" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Button Content="Buy Storage" HorizontalAlignment="Left" Margin="63,352,0,0" VerticalAlignment="Top" Width="163" Height="27" Click="BuyStorage"/>
-        <TextBlock x:Name="storageTotal" HorizontalAlignment="Left" Margin="91,280,0,0" Text="Total Warehouses: 0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock Name="storageIncrease" HorizontalAlignment="Left" Margin="100,301,0,0" Text="+25 Max Wheat" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock Name="storageCost" HorizontalAlignment="Left" Margin="86,322,0,0" Text="Storage Gold Cost: 100" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button Content="Hire Farmer" HorizontalAlignment="Left" Margin="215,283,0,0" VerticalAlignment="Top" Width="163" Click="HireFarmer" Height="27"/>
+        <TextBlock Name="totalFarmer" HorizontalAlignment="Left" Margin="254,212,0,0" Text="Total Farmers: 0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Name="farmerGain" HorizontalAlignment="Left" Margin="258,233,0,0" Text="+1 Wheat/click" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Name="farmerCost" HorizontalAlignment="Left" Margin="236,254,0,0" Text="Gold To Hire Farmer: 20" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Name="wheatPerClick" HorizontalAlignment="Left" Margin="333,116,0,0" Text="Wheat Per Click: 1" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button Content="Buy Storage" HorizontalAlignment="Left" Margin="18,284,0,0" VerticalAlignment="Top" Width="163" Height="27" Click="BuyStorage"/>
+        <TextBlock x:Name="storageTotal" HorizontalAlignment="Left" Margin="46,212,0,0" Text="Total Warehouses: 0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Name="storageIncrease" HorizontalAlignment="Left" Margin="55,233,0,0" Text="+25 Max Wheat" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Name="storageCost" HorizontalAlignment="Left" Margin="41,254,0,0" Text="Storage Gold Cost: 100" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button Content="Buy Market" HorizontalAlignment="Left" Margin="406,283,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.299" Height="27" Width="162" Click="BuyMarket"/>
+        <TextBlock Name="marketTotal" HorizontalAlignment="Left" Margin="444,212,0,0" Text="Total Markets: 0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Name="marketIncrease" HorizontalAlignment="Left" Margin="458,233,0,0" Text="x2 Per Sale" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Name="marketCost" HorizontalAlignment="Left" Margin="426,254,0,0" Text="Gold To Buy Market: 10" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="2.547,12.158"/>
 
     </Grid>
 </Window>

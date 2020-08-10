@@ -40,6 +40,12 @@ namespace IsThisThingOn
             UpdateText();
         }
 
+        private void BuyMarket(object sender, RoutedEventArgs e)
+        {
+            wheat.BuyMarket(person);
+            UpdateText();
+        }
+
         private void UpdateText()
         {
             goldText.Text = "Total Gold: " + person.Gold.ToString();
@@ -47,12 +53,16 @@ namespace IsThisThingOn
             wheatPrices.Text = "Price: $" + person.WheatPrice;
             wheatPerClick.Text = "Wheat Per Click: " + person.WheatPerClick;
             totalFarmer.Text = "Total Farmers: " + person.Farmers;
-            farmerGain.Text = "+" + person.WheatPerSec + " Wheat/sec";
+            farmerGain.Text = "+" + person.WheatPerSec + " Wheat/click";
             farmerCost.Text = "Gold To Hire Farmer: " + person.FarmerGoldCost;
             storageTotal.Text = "Total Warehouses: " + person.StorageUnits;
             storageIncrease.Text = "+" + person.ChestIncreaseWheatMax + " Max Wheat";
             storageCost.Text = "Storage Gold Cost: " + person.StorageCost;
-
+            marketCost.Text = "Gold To Buy Market: " + person.MarketCost;
+            marketTotal.Text = "Total Markets: " + person.Markets;
+            marketIncrease.Text = "x" + person.WheatPerSale + " Per Sale";
         }
+
+        
     }
 }
