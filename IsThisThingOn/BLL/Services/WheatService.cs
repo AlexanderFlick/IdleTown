@@ -7,67 +7,68 @@ namespace BLL.Services
 {
     public interface IWheatService
     {
-        void Gain(Person person);
-        void Sell(Person person);
-        void HireFarmer(Person person);
-        void BuyStorage(Person person);
-        void BuyMarket(Person person);
+        void Gain(Wheat wheat);
+        void Sell(Person person, Wheat wheat);
+        void HireFarmer(Person person, Farmer farmer, Wheat wheat);
+        void BuyStorage(Person person, Storage storage, Wheat wheat);
+        void BuyMarket(Person person, Markets market, Wheat wheat);
     }
     public class WheatService : IWheatService
     {
         private IItemService _itemService;
+        
         public WheatService(IItemService itemService)
         {
             _itemService = itemService;
         }
         
-        public void Gain(Person person)
+        public void Gain(Wheat wheat)
         {
-            person.WheatTotal = _itemService.Gather(person.WheatTotal, person.WheatPerClick);
-            if (person.WheatTotal > person.WheatMax)
+            wheat.Total = _itemService.Gather(wheat.Total, wheat.PerClick);
+            if (wheat.Total > wheat.Max)
             {
-                person.WheatTotal = person.WheatMax;
+                wheat.Total = wheat.Max;
             }
         }
 
-        public void Sell(Person person)
+        public void Sell(Person person, Wheat wheat)
         {
-            if (person.WheatTotal > 0)
+            if (wheat.Total > 0)
             {
-                person.EarnWheat = true;
-                person.Gold = _itemService.GainGold(person.WheatPrice, person.Gold, person.EarnWheat);
-                person.WheatTotal = _itemService.Sell(person.WheatTotal);
+                wheat.Earn = true;
+                person.Gold = _itemService.GainGold(wheat.Price, person.Gold, wheat.Earn);
+                wheat.Total = _itemService.Sell(wheat.Total);
             }
         }
 
-        public void HireFarmer(Person person)
+        public void HireFarmer(Person person, Farmer farmer, Wheat wheat)
         {
-            if(person.FarmerGoldCost <= person.Gold)
+            if(farmer.Cost <= person.Gold)
             {
-                person.Gold -= person.FarmerGoldCost;
-                person.Farmers++;
-                person.WheatPerClick++;
-                person.FarmerActive = true;
+                person.Gold -= farmer.Cost;
+                farmer.Total++;
+                farmer.Active = true;
+                wheat.PerClick++;
             }
         }
 
-        public void BuyStorage(Person person)
+        public void BuyStorage(Person person, Storage storage, Wheat wheat)
         {
-            if(person.StorageCost <= person.Gold)
+            if(storage.Cost <= person.Gold)
             {
-                person.Gold -= person.StorageCost;
-                person.StorageUnits++;
-                person.WheatMax += person.ChestIncreaseWheatMax;
+                person.Gold -= storage.Cost;
+                storage.Total++;
+                wheat.Max += storage.IncreaseWheatMax;
             }
         }
 
-        public void BuyMarket(Person person)
+        public void BuyMarket(Person person, Markets market, Wheat wheat)
         {
-            if(person.MarketCost <= person.Gold)
+            if(market.Cost <= person.Gold)
             {
-                person.Gold -= person.MarketCost;
-                person.Markets++;
-                person.WheatPrice *= 2;
+                person.Gold -= market.Cost;
+                market.Total++;
+                wheat.Price *= 2;
             }
         }
     }

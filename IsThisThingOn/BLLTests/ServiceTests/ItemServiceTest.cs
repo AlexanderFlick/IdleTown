@@ -38,9 +38,10 @@ namespace BLLTests
         public void WhenYouGainGold_YouEarnBasedOnItemPrice()
         {
             var person = GenerateTestPerson();
-            person.EarnWheat = true;
+            var wheat = GenerateTestWheat();
+            wheat.Earn = true;
             var expected = 4;
-            var actual = _sut.GainGold(person.WheatPrice, person.Gold, person.EarnWheat);
+            var actual = _sut.GainGold(wheat.Price, person.Gold, wheat.Earn);
             Assert.AreEqual(expected, actual);
         }
 
@@ -48,10 +49,11 @@ namespace BLLTests
         public void YouDoNotEarnGoldIfYouHaveZeroOfAnItem()
         {
             var person = GenerateTestPerson();
-            person.EarnWheat = false;
-            person.WheatTotal = 0;
+            var wheat = GenerateTestWheat();
+            wheat.Earn = false;
+            wheat.Total = 0;
             var expected = 2;
-            var actual = _sut.GainGold(person.WheatPrice, person.Gold, person.EarnWheat);
+            var actual = _sut.GainGold(wheat.Price, person.Gold, wheat.Earn);
             Assert.AreEqual(expected, actual);
         }
 
@@ -60,10 +62,17 @@ namespace BLLTests
             return new Person
             {
                 Gold = 2,
-                WheatTotal = 5,
-                WheatMax = 10,
-                WheatPrice = 2,
-                EarnWheat = false,
+            };
+        }
+
+        private Wheat GenerateTestWheat()
+        {
+            return new Wheat
+            {
+                Total = 5,
+                Max = 10,
+                Price = 2,
+                Earn = false
             };
         }
     }

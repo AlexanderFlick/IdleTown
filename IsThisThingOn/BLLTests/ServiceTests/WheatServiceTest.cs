@@ -22,21 +22,21 @@ namespace BLLTests.ServiceTests
         [Test]
         public void WhenYouGatherWheat_TotalIncreases()
         {
-            var person = GenerateTestPerson();
-            _sut.Gain(person);
+            var wheat = GenerateTestWheat();
+            _sut.Gain(wheat);
             var expected = 6;
-            var actual = person.WheatTotal;
+            var actual = wheat.Total;
             Assert.AreEqual(expected, actual);
         }
 
         [Test]
         public void CantGainMoreWheatThanMax()
         {
-            var person = GenerateTestPerson();
-            person.WheatTotal = 10;
-            _sut.Gain(person);
+            var wheat = GenerateTestWheat();
+            wheat.Total = 10;
+            _sut.Gain(wheat);
             var expected = 10;
-            var actual = person.WheatTotal;
+            var actual = wheat.Total;
             Assert.AreEqual(expected, actual);
         }
 
@@ -44,9 +44,10 @@ namespace BLLTests.ServiceTests
         public void WhenYouSellWheat_TotalDecreases()
         {
             var person = GenerateTestPerson();
-            _sut.Sell(person);
+            var wheat = GenerateTestWheat();
+            _sut.Sell(person, wheat);
             var expected = 4;
-            var actual = person.WheatTotal;
+            var actual = wheat.Total;
             Assert.AreEqual(expected, actual);
         }
 
@@ -54,10 +55,11 @@ namespace BLLTests.ServiceTests
         public void CantSellWheatIfTotalIsZero()
         {
             var person = GenerateTestPerson();
-            person.WheatTotal = 0;
-            _sut.Sell(person);
+            var wheat = GenerateTestWheat();
+            wheat.Total = 0;
+            _sut.Sell(person, wheat);
             var expected = 0;
-            var actual = person.WheatTotal;
+            var actual = wheat.Total;
             Assert.AreEqual(expected, actual);
         }
 
@@ -65,8 +67,9 @@ namespace BLLTests.ServiceTests
         public void DontEarnGoldIfWheatTotalIsZero()
         {
             var person = GenerateTestPerson();
-            person.WheatTotal = 0;
-            _sut.Sell(person);
+            var wheat = GenerateTestWheat();
+            wheat.Total = 0;
+            _sut.Sell(person, wheat);
             var expected = 2;
             var actual = person.Gold;
             Assert.AreEqual(expected, actual);
@@ -76,9 +79,12 @@ namespace BLLTests.ServiceTests
         public void HireFarmerIfEnoughGold()
         {
             var person = GenerateTestPerson();
-            _sut.HireFarmer(person);
+            var wheat = GenerateTestWheat();
+            var farmer = GenerateTestFarmer();
+
+            _sut.HireFarmer(person, farmer, wheat);
             var expected = 1;
-            var actual = person.Farmers;
+            var actual = farmer.Total;
             Assert.AreEqual(expected, actual);
         }
 
@@ -86,9 +92,12 @@ namespace BLLTests.ServiceTests
         public void BuyStorageIfEnoughGold()
         {
             var person = GenerateTestPerson();
-            _sut.BuyStorage(person);
+            var storage = GenerateTestStorage();
+            var wheat = GenerateTestWheat();
+
+            _sut.BuyStorage(person, storage, wheat);
             var expected = 1;
-            var actual = person.StorageUnits;
+            var actual = storage.Total;
             Assert.AreEqual(expected, actual);
         }
 
@@ -96,10 +105,13 @@ namespace BLLTests.ServiceTests
         public void CantBuyStorageIfShortGold()
         {
             var person = GenerateTestPerson();
-            person.StorageCost = 10;
-            _sut.BuyStorage(person);
+            var storage = GenerateTestStorage();
+            var wheat = GenerateTestWheat();
+
+            storage.Cost = 10;
+            _sut.BuyStorage(person, storage, wheat);
             var expected = 0;
-            var actual = person.StorageUnits;
+            var actual = storage.Total;
             Assert.AreEqual(expected, actual);
         }
 
@@ -108,13 +120,36 @@ namespace BLLTests.ServiceTests
             return new Person
             {
                 Gold = 2,
-                WheatTotal = 5,
-                WheatMax = 10,
-                WheatPrice = 2,
-                EarnWheat = false,
-                Farmers = 0,
-                FarmerGoldCost = 1,
-                StorageCost = 1,
+            };
+        }
+
+        private Wheat GenerateTestWheat()
+        {
+            return new Wheat
+            {
+                Total = 5,
+                Max = 10,
+                Price = 2,
+                Earn = false
+            };
+        }
+
+        private Farmer GenerateTestFarmer()
+        {
+            return new Farmer
+            {
+                Total = 0,
+                Cost = 1,
+            };
+        }
+
+        private Storage GenerateTestStorage()
+        {
+            return new Storage
+            {
+                Total = 0,
+                Cost = 2,
+                IncreaseWheatMax = 2,
             };
         }
     }
