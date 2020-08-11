@@ -26,35 +26,13 @@ namespace BLLTests
         }
 
         [Test]
-        public void WhenYouSellAnItem_TotalDecreases()
-        {
-            var startingAmount = 10;
-            var itemsSold = 1;
-            var expected = 9;
-            var actual = _sut.Gather(startingAmount, -itemsSold);
-            Assert.AreEqual(expected, actual);
-        }
-
-        [Test]
         public void WhenYouGainGold_YouEarnBasedOnItemPrice()
         {
             var person = GenerateTestPerson();
             var wheat = GenerateTestWheat();
             wheat.Earn = true;
             var expected = 4;
-            var actual = _sut.GainGold(wheat.Price, person.Gold, wheat.Earn);
-            Assert.AreEqual(expected, actual);
-        }
-
-        [Test]
-        public void YouDoNotEarnGoldIfYouHaveZeroOfAnItem()
-        {
-            var person = GenerateTestPerson();
-            var wheat = GenerateTestWheat();
-            wheat.Earn = false;
-            wheat.Total = 0;
-            var expected = 2;
-            var actual = _sut.GainGold(wheat.Price, person.Gold, wheat.Earn);
+            var actual = _sut.Gather(person.Gold, wheat.Price);
             Assert.AreEqual(expected, actual);
         }
 
