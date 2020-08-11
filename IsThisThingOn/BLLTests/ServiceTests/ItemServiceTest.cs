@@ -36,6 +36,29 @@ namespace BLLTests
             Assert.AreEqual(expected, actual);
         }
 
+        [Test]
+        public void WhenYouBuyAnUpgrade_YouLoseGold()
+        {
+            var person = GenerateTestPerson();
+            var farmer = GenerateTestFarmer();
+
+            var expected = 1;
+            var actual = _sut.Pay(person.Gold, farmer.Cost);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void CanNotBuyAnUpgrade_IfNotEnoughGold()
+        {
+            var person = GenerateTestPerson();
+            var farmer = GenerateTestFarmer();
+            farmer.Cost = 100;
+
+            var expected = 2;
+            var actual = _sut.Pay(person.Gold, farmer.Cost);
+            Assert.AreEqual(expected, actual);
+        }
+
         private Person GenerateTestPerson()
         {
             return new Person
@@ -52,6 +75,18 @@ namespace BLLTests
                 Max = 10,
                 Price = 2,
                 Earn = false
+            };
+        }
+
+        private Farmer GenerateTestFarmer()
+        {
+            return new Farmer
+            {
+                Total = 0,
+                Cost = 1,
+                HarvestRate = 1,
+                WheatPerSecond = 1,
+                Active = true,
             };
         }
     }

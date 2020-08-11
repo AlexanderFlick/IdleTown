@@ -49,7 +49,7 @@ namespace BLL.Services
         {
             if(farmer.Cost <= person.Gold)
             {
-                person.Gold -= farmer.Cost;
+                _is.Pay(person.Gold, farmer.Cost);
                 farmer.Total++;
                 farmer.Active = true;
             }
@@ -68,7 +68,7 @@ namespace BLL.Services
         {
             if(storage.Cost <= person.Gold)
             {
-                person.Gold -= storage.Cost;
+                _is.Pay(person.Gold, storage.Cost);
                 storage.Total++;
                 wheat.Max += storage.IncreaseWheatMax;
             }
@@ -78,7 +78,7 @@ namespace BLL.Services
         {
             if(market.Cost <= person.Gold)
             {
-                person.Gold -= market.Cost;
+                _is.Pay(person.Gold, market.Cost);
                 market.Total++;
                 wheat.Price *= 2;
             }
