@@ -15,7 +15,7 @@
 
         public int Pay(int total, int cost)
         {
-            if(total >= cost)
+            if(cost <= total)
             {
                 total -= cost;
             }

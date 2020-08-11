@@ -49,7 +49,7 @@ namespace BLL.Services
         {
             if(farmer.Cost <= person.Gold)
             {
-                _is.Pay(person.Gold, farmer.Cost);
+                person.Gold = _is.Pay(person.Gold, farmer.Cost);
                 farmer.Total++;
                 farmer.Active = true;
             }

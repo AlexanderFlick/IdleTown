@@ -104,6 +104,19 @@ namespace BLLTests.ServiceTests
         }
 
         [Test]
+        public void IfYouHireAFarmer_YouLoseGold()
+        {
+            var person = GenerateTestPerson();
+            var wheat = GenerateTestWheat();
+            var farmer = GenerateTestFarmer();
+
+            _sut.HireFarmer(person, farmer, wheat);
+            var expected = 1;
+            var actual = person.Gold;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
         public void IfYouHireAFarmer_YouCantEarnMoreThanMaxWheat()
         {
             var person = GenerateTestPerson();
