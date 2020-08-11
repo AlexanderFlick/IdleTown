@@ -29,8 +29,9 @@ namespace BLLTests
         public void WhenYouSellAnItem_TotalDecreases()
         {
             var startingAmount = 10;
+            var itemsSold = 1;
             var expected = 9;
-            var actual = _sut.Sell(startingAmount);
+            var actual = _sut.Gather(startingAmount, -itemsSold);
             Assert.AreEqual(expected, actual);
         }
 

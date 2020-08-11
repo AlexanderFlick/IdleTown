@@ -15,16 +15,16 @@ namespace BLL.Services
     }
     public class WheatService : IWheatService
     {
-        private IItemService _itemService;
+        private IItemService _is;
         
         public WheatService(IItemService itemService)
         {
-            _itemService = itemService;
+            _is = itemService;
         }
         
         public void Gain(Wheat wheat)
         {
-            wheat.Total = _itemService.Gather(wheat.Total, wheat.PerClick);
+            wheat.Total = _is.Gather(wheat.Total, wheat.PerClick);
             if (wheat.Total > wheat.Max)
             {
                 wheat.Total = wheat.Max;
@@ -35,9 +35,9 @@ namespace BLL.Services
         {
             if (wheat.Total > 0)
             {
-                wheat.Earn = true;
-                person.Gold = _itemService.GainGold(wheat.Price, person.Gold, wheat.Earn);
-                wheat.Total = _itemService.Sell(wheat.Total);
+                var wheatSold = -1;
+                person.Gold = _is.Gather(person.Gold, wheat.Price);
+                wheat.Total = _is.Gather(wheat.Total, wheatSold);
             }
         }
 

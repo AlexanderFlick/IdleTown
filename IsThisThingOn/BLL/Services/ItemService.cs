@@ -2,31 +2,14 @@
 {
     public interface IItemService
     {
-        int Gather(int total, int inc);
-        int Sell(int total);
-        int GainGold(int priceOfItem, int gold, bool earn);
+        int Gather(int total, int delta);
     }
     public class ItemService : IItemService
     {
-        public int Gather(int total, int inc)
+        public int Gather(int total, int delta)
         {
-            total += inc;
+            total += delta;
             return total;
-        }
-
-        public int Sell(int total)
-        {
-            total--;
-            return total;
-        }
-
-        public int GainGold(int priceOfItem, int gold, bool earn)
-        {
-            if (earn)
-            {
-                gold += priceOfItem;
-            }
-            return gold;
         }
     }
 }
