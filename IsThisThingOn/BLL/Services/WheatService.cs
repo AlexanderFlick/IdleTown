@@ -25,13 +25,13 @@ namespace BLL.Services
         
         public void Gain(Wheat wheat)
         {
-            if (wheat.Total > wheat.Max)
+            if (wheat.Total >= wheat.Max)
             {
                 wheat.Total = wheat.Max;
             }
             else
             {
-                wheat.Total++;
+                wheat.Total = _is.Gather(wheat.Total, wheat.PerClick);
             }
         }
 
@@ -60,7 +60,7 @@ namespace BLL.Services
             if (farmer.Active && wheat.Total < wheat.Max)
             {
                 farmer.TotalHarvest = farmer.WheatPerSecond * farmer.Total;
-                Gain(wheat);
+                wheat.Total = _is.Gather(wheat.Total, farmer.TotalHarvest);
             }
         }
 

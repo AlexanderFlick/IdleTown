@@ -158,7 +158,8 @@ namespace BLLTests.ServiceTests
                 Total = 5,
                 Max = 10,
                 Price = 2,
-                Earn = false
+                Earn = false,
+                PerClick = 1,
             };
         }
 
