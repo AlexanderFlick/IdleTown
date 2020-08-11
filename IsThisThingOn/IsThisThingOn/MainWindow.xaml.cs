@@ -2,16 +2,17 @@
 using BLL.Services;
 using System;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace IsThisThingOn
 {
     public partial class MainWindow : Window
     {
-        Person person = new Person();
-        Wheat wheats = new Wheat();
-        Markets market = new Markets();
-        Farmer farmer = new Farmer();
-        Storage storage = new Storage();
+        private Person person = new Person();
+        private Wheat wheats = new Wheat();
+        private Markets market = new Markets();
+        private Farmer farmer = new Farmer();
+        private Storage storage = new Storage();
 
         private readonly IWheatService wheat;
 
@@ -19,6 +20,23 @@ namespace IsThisThingOn
         {
             this.wheat = wheat;
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            DispatcherTimer dt = new DispatcherTimer();
+            dt.Interval = TimeSpan.FromMilliseconds(farmer.HarvestRate);
+            dt.Tick += farmerTicker;
+            dt.Start();
+        }
+
+        private void farmerTicker(object sender, EventArgs e)
+        {
+            if (farmer.Active && wheats.Total > wheats.Max)
+            {
+                wheats.Total += farmer.WheatPerSecond;
+                UpdateText();
+            }
         }
 
         private void GetWheat(object sender, RoutedEventArgs e)

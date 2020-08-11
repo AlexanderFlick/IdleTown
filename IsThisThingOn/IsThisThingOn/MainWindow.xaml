@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IsThisThingOn"
         mc:Ignorable="d"
-        Title="Idle Town" Height="500" Width="800">
+        Title="Idle Town" Height="500" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Button Content="Gather" HorizontalAlignment="Left" Margin="300,144,0,0" VerticalAlignment="Top" Height="27" Width="73" Click="GetWheat"/>
         <TextBlock Name="wheatText" HorizontalAlignment="Left" Margin="348,74,0,0" Text="Wheat: 0/10" TextWrapping="Wrap" VerticalAlignment="Top"/>

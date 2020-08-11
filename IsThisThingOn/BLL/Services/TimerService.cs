@@ -7,12 +7,12 @@ namespace BLL.Services
 {
     public interface ITimerService
     {
-        void Start();
+        void Start(int interval);
     }
     public class TimerService : ITimerService
     {
         private static Timer timer;
-        public void Start()
+        public void Start(int interval)
         {
             timer = new Timer();
             timer.Interval = 1000;

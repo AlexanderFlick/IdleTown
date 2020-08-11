@@ -2,9 +2,6 @@
 using BLL.Services;
 using NSubstitute;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BLLTests.ServiceTests
 {
@@ -23,6 +20,7 @@ namespace BLLTests.ServiceTests
         public void WhenYouGatherWheat_TotalIncreases()
         {
             var wheat = GenerateTestWheat();
+
             _sut.Gain(wheat);
             var expected = 6;
             var actual = wheat.Total;
@@ -33,6 +31,7 @@ namespace BLLTests.ServiceTests
         public void CantGainMoreWheatThanMax()
         {
             var wheat = GenerateTestWheat();
+
             wheat.Total = 10;
             _sut.Gain(wheat);
             var expected = 10;
@@ -45,6 +44,7 @@ namespace BLLTests.ServiceTests
         {
             var person = GenerateTestPerson();
             var wheat = GenerateTestWheat();
+
             _sut.Sell(person, wheat);
             var expected = 4;
             var actual = wheat.Total;
@@ -56,6 +56,7 @@ namespace BLLTests.ServiceTests
         {
             var person = GenerateTestPerson();
             var wheat = GenerateTestWheat();
+
             wheat.Total = 0;
             _sut.Sell(person, wheat);
             var expected = 0;
@@ -68,6 +69,7 @@ namespace BLLTests.ServiceTests
         {
             var person = GenerateTestPerson();
             var wheat = GenerateTestWheat();
+
             wheat.Total = 0;
             _sut.Sell(person, wheat);
             var expected = 2;
@@ -85,6 +87,32 @@ namespace BLLTests.ServiceTests
             _sut.HireFarmer(person, farmer, wheat);
             var expected = 1;
             var actual = farmer.Total;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void IfYouHireAFarmer_YouActivateHarvesting()
+        {
+            var person = GenerateTestPerson();
+            var wheat = GenerateTestWheat();
+            var farmer = GenerateTestFarmer();
+
+            _sut.HireFarmer(person, farmer, wheat);
+            var expected = true;
+            var actual = farmer.Active;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void IfYouHireAFarmer_YouCantEarnMoreThanMaxWheat()
+        {
+            var person = GenerateTestPerson();
+            var wheat = GenerateTestWheat();
+            var farmer = GenerateTestFarmer();
+
+            _sut.HireFarmer(person, farmer, wheat);
+            var expected = 10;
+            var actual = wheat.Max;
             Assert.AreEqual(expected, actual);
         }
 

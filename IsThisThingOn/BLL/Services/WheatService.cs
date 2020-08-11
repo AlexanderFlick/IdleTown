@@ -48,7 +48,6 @@ namespace BLL.Services
                 person.Gold -= farmer.Cost;
                 farmer.Total++;
                 farmer.Active = true;
-                wheat.PerClick++;
             }
         }
 
