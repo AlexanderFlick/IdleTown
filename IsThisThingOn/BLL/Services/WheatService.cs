@@ -39,7 +39,7 @@ namespace BLL.Services
         {
             if (wheat.Total > 0)
             {
-                var wheatSold = -1;
+                var wheatSold = -1 * wheat.Sold;
                 person.Gold = _is.Gather(person.Gold, wheat.Price);
                 wheat.Total = _is.Gather(wheat.Total, wheatSold);
             }

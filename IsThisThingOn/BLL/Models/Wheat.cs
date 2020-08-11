@@ -11,5 +11,6 @@ namespace BLL.Models
         public int Price { get; set; } = 2;
         public int PerClick { get; set; } = 1;
         public bool Earn { get; set; } = false;
+        public int Sold { get; set; } = 1;
     }
 }
