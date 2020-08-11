@@ -10,6 +10,7 @@ namespace BLL.Services
         void Gain(Wheat wheat);
         void Sell(Person person, Wheat wheat);
         void HireFarmer(Person person, Farmer farmer, Wheat wheat);
+        void Harvest(Farmer farmer, Wheat wheat);
         void BuyStorage(Person person, Storage storage, Wheat wheat);
         void BuyMarket(Person person, Markets market, Wheat wheat);
     }
@@ -24,10 +25,13 @@ namespace BLL.Services
         
         public void Gain(Wheat wheat)
         {
-            wheat.Total = _is.Gather(wheat.Total, wheat.PerClick);
             if (wheat.Total > wheat.Max)
             {
                 wheat.Total = wheat.Max;
+            }
+            else
+            {
+                wheat.Total++;
             }
         }
 
@@ -48,6 +52,15 @@ namespace BLL.Services
                 person.Gold -= farmer.Cost;
                 farmer.Total++;
                 farmer.Active = true;
+            }
+        }
+
+        public void Harvest(Farmer farmer, Wheat wheat)
+        {
+            if (farmer.Active && wheat.Total < wheat.Max)
+            {
+                farmer.TotalHarvest = farmer.WheatPerSecond * farmer.Total;
+                Gain(wheat);
             }
         }
 

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Timers;
+﻿using System.Timers;
 
 namespace BLL.Services
 {
@@ -11,11 +8,8 @@ namespace BLL.Services
     }
     public class TimerService : ITimerService
     {
-        private static Timer timer;
         public void Start(int interval)
         {
-            timer = new Timer();
-            timer.Interval = 1000;
         }
     }
 }

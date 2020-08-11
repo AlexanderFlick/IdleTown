@@ -11,5 +11,6 @@ namespace BLL.Models
         public int HarvestRate { get; set; } = 1000;
         public bool Active { get; set; } = false;
         public int WheatPerSecond { get; set; } = 1;
+        public int TotalHarvest { get; set; }
     }
 }
