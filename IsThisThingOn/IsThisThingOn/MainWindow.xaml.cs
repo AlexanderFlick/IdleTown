@@ -32,7 +32,7 @@ namespace IsThisThingOn
 
         private void farmerTicker(object sender, EventArgs e)
         {
-            if (farmer.Active && wheats.Total > wheats.Max)
+            if (farmer.Active && wheats.Total < wheats.Max)
             {
                 wheats.Total += farmer.WheatPerSecond;
                 UpdateText();
@@ -76,7 +76,7 @@ namespace IsThisThingOn
             wheatPrices.Text = "Price: $" + wheats.Price;
             wheatPerClick.Text = "Wheat Per Click: " + wheats.PerClick;
             totalFarmer.Text = "Total Farmers: " + farmer.Total;
-            farmerGain.Text = "+" + wheats.PerClick + " Wheat/click";
+            farmerGain.Text = "+" + wheats.PerClick + " Wheat/sec";
             farmerCost.Text = "Gold To Hire Farmer: " + farmer.Cost;
             storageTotal.Text = "Total Warehouses: " + storage.Total;
             storageIncrease.Text = "+" + storage.IncreaseWheatMax + " Max Wheat";
