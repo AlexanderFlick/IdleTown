@@ -5,52 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IsThisThingOn"
         mc:Ignorable="d"
-        Title="Idle Town" Height="500" Width="800" Loaded="Window_Loaded">
-    <Grid Height="477" Background="AliceBlue">
+        Title="Idle Town" Height="500" Width="1000" Loaded="Window_Loaded">
+    <Grid Height="478" Background="FloralWhite">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="799*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TabControl Margin="0,17,0,0">
+        <TabControl Margin="0,26,595,0">
             <TabItem Header="Wheat">
-                <Grid Background="#FFE5E5E5" Margin="0,0,53,0">
+                <Grid Background="#FFE5E5E5" HorizontalAlignment="Left" Width="392" Height="413">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="75*"/>
-                        <ColumnDefinition Width="551*"/>
-                        <ColumnDefinition Width="57*"/>
-                        <ColumnDefinition Width="57*"/>
+                        <ColumnDefinition Width="76*"/>
+                        <ColumnDefinition Width="675*"/>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition Width="0*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="Gather" HorizontalAlignment="Left" Margin="69,79,0,0" VerticalAlignment="Top" Height="27" Width="162" Click="GetWheat" RenderTransformOrigin="1.315,0.594" Grid.Column="1"/>
-                    <TextBlock x:Name="wheatPrices" HorizontalAlignment="Left" Margin="223,28,0,0" Text="Price: $2" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="48" RenderTransformOrigin="0.375,-0.422" Grid.Column="1"/>
-                    <Button Content="Sell" HorizontalAlignment="Left" Margin="256,79,0,0" VerticalAlignment="Top" Height="27" Width="162" Click="SellWheat" Grid.Column="1"/>
-                    <Button Content="Hire Farmer" HorizontalAlignment="Left" Margin="174,232,0,0" VerticalAlignment="Top" Width="163" Click="HireFarmer" Height="27" Grid.Column="1"/>
-                    <TextBlock x:Name="totalFarmer" HorizontalAlignment="Left" Margin="213,161,0,0" Text="Total Farmers: 0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="82" Grid.Column="1"/>
-                    <TextBlock x:Name="farmerGain" HorizontalAlignment="Left" Margin="217,182,0,0" Text="+1 Wheat/click" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="80" Grid.Column="1"/>
-                    <TextBlock x:Name="farmerCost" HorizontalAlignment="Left" Margin="195,0,0,0" Text="Gold To Hire Farmer: 20" TextWrapping="Wrap" VerticalAlignment="Center" Height="16" Width="124" Grid.Column="1"/>
-                    <TextBlock x:Name="wheatPerClick" HorizontalAlignment="Left" Margin="199,53,0,0" Text="Wheat Per Click: 1" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="96" Grid.Column="1"/>
-                    <Button Content="Buy Storage" HorizontalAlignment="Left" Margin="53,232,0,0" VerticalAlignment="Top" Width="163" Height="27" Click="BuyStorage" Grid.ColumnSpan="2"/>
-                    <TextBlock x:Name="storageTotal" HorizontalAlignment="Left" Margin="17,161,0,0" Text="Total Warehouses: 0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="105" Grid.Column="1"/>
-                    <TextBlock x:Name="storageIncrease" HorizontalAlignment="Left" Margin="17,182,0,0" Text="+25 Max Wheat" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="85" Grid.Column="1"/>
-                    <TextBlock x:Name="storageCost" HorizontalAlignment="Left" Margin="9,0,0,0" Text="Storage Gold Cost: 100" TextWrapping="Wrap" VerticalAlignment="Center" Height="16" Width="121" Grid.Column="1"/>
-                    <Button Content="Buy Market" HorizontalAlignment="Left" Margin="377,232,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.299" Height="27" Width="162" Click="BuyMarket" Grid.Column="1"/>
-                    <TextBlock x:Name="marketTotal" HorizontalAlignment="Left" Margin="415,161,0,0" Text="Total Markets: 0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="83" Grid.Column="1"/>
-                    <TextBlock x:Name="marketIncrease" HorizontalAlignment="Left" Margin="429,182,0,0" Text="x2 Per Sale" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="57" Grid.Column="1"/>
-                    <TextBlock x:Name="marketCost" HorizontalAlignment="Left" Margin="397,0,0,0" Text="Gold To Buy Market: 10" TextWrapping="Wrap" VerticalAlignment="Center" RenderTransformOrigin="2.547,12.158" Height="16" Width="123" Grid.Column="1"/>
+                    <Button Content="Gather" HorizontalAlignment="Left" Margin="8,78,0,0" VerticalAlignment="Top" Height="27" Width="162" Click="GetWheat" RenderTransformOrigin="1.315,0.594" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="wheatPrices" HorizontalAlignment="Left" Margin="115,20,0,0" Text="Price: $2" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="48" RenderTransformOrigin="0.375,-0.422" Grid.Column="1"/>
+                    <Button Content="Sell" HorizontalAlignment="Left" Margin="141,78,0,0" VerticalAlignment="Top" Height="27" Width="162" Click="SellWheat" Grid.Column="1"/>
+                    <Button Content="Hire Farmer" HorizontalAlignment="Left" Margin="8,352,0,0" VerticalAlignment="Top" Width="163" Click="HireFarmer" Height="27" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="totalFarmer" HorizontalAlignment="Left" Margin="47,281,0,0" Text="Total Farmers: 0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="82" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="farmerGain" HorizontalAlignment="Left" Margin="51,302,0,0" Text="+1 Wheat/click" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="80" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="farmerCost" HorizontalAlignment="Left" Margin="29,328,0,0" Text="Gold To Hire Farmer: 20" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="124" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="wheatPerClick" HorizontalAlignment="Left" Margin="91,45,0,0" Text="Wheat Per Click: 1" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="96" Grid.Column="1"/>
+                    <Button Content="Buy Storage" HorizontalAlignment="Left" Margin="10,232,0,0" VerticalAlignment="Top" Width="163" Height="27" Click="BuyStorage" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="storageTotal" HorizontalAlignment="Left" Margin="54,161,0,0" Text="Total Warehouses: 0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="105" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="storageIncrease" HorizontalAlignment="Left" Margin="54,182,0,0" Text="+25 Max Wheat" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="85" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="storageCost" HorizontalAlignment="Left" Margin="46,0,0,0" Text="Storage Gold Cost: 100" TextWrapping="Wrap" VerticalAlignment="Center" Height="16" Width="121" Grid.ColumnSpan="2"/>
+                    <Button Content="Buy Market" HorizontalAlignment="Left" Margin="147,232,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.299" Height="27" Width="162" Click="BuyMarket" Grid.Column="1"/>
+                    <TextBlock x:Name="marketTotal" HorizontalAlignment="Left" Margin="178,161,0,0" Text="Total Markets: 0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="84" Grid.Column="1"/>
+                    <TextBlock x:Name="marketIncrease" HorizontalAlignment="Left" Margin="192,182,0,0" Text="x2 Per Sale" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="58" Grid.Column="1"/>
+                    <TextBlock x:Name="marketCost" HorizontalAlignment="Left" Margin="160,0,0,0" Text="Gold To Buy Market: 10" TextWrapping="Wrap" VerticalAlignment="Center" RenderTransformOrigin="2.547,12.158" Height="16" Width="124" Grid.Column="1"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Stone">
-                <Grid Background="#FFE5E5E5" Margin="0,0,105,0">
+                <Grid Background="#FFE5E5E5" Margin="0,0,6,0" Height="414">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="16*"/>
-                        <ColumnDefinition Width="778*"/>
-                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="341*"/>
+                        <ColumnDefinition Width="11*"/>
+                        <ColumnDefinition Width="0*"/>
                     </Grid.ColumnDefinitions>
+                    <Button Content="Gather" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Height="27" Width="162" Click="GetWheat" RenderTransformOrigin="1.315,0.594" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="stonePrices" HorizontalAlignment="Left" Margin="120,21,0,0" Text="Price: $4" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="48" RenderTransformOrigin="0.375,-0.422" Grid.Column="1"/>
+                    <Button Content="Sell" HorizontalAlignment="Left" Margin="154,88,0,0" VerticalAlignment="Top" Height="27" Width="162" Click="SellWheat" Grid.Column="1"/>
+                    <Button Content="Hire Miner" HorizontalAlignment="Left" Margin="10,354,0,0" VerticalAlignment="Top" Width="163" Click="HireFarmer" Height="27" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="totalMiner" HorizontalAlignment="Left" Margin="9,283,0,0" Text="Total Miners: 0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="82" Grid.Column="1"/>
+                    <TextBlock x:Name="minerGain" HorizontalAlignment="Left" Margin="13,304,0,0" Text="+1 Stone/click" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="80" Grid.Column="1"/>
+                    <TextBlock x:Name="minerCost" HorizontalAlignment="Left" Margin="31,321,0,0" Text="Gold To Hire Miner: 50" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="124" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="stonePerClick" HorizontalAlignment="Left" Margin="96,46,0,0" Text="Stone Per Click: 1" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="96" Grid.Column="1"/>
+                    <Button Content="Buy Warehouse" HorizontalAlignment="Left" Margin="10,232,0,0" VerticalAlignment="Top" Width="163" Height="27" Click="BuyStorage" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="warehouseTotal" HorizontalAlignment="Left" Margin="11,161,0,0" Text="Total Warehouses: 0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="105" Grid.Column="1"/>
+                    <TextBlock x:Name="warehouseIncrease" HorizontalAlignment="Left" Margin="11,182,0,0" Text="+25 Max Wheat" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="85" Grid.Column="1"/>
+                    <TextBlock x:Name="warehouseCost" HorizontalAlignment="Left" Margin="3,0,0,0" Text="Storage Gold Cost: 100" TextWrapping="Wrap" VerticalAlignment="Center" Height="16" Width="121" Grid.Column="1"/>
+                    <Button Content="Buy Market" HorizontalAlignment="Left" Margin="156,232,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.299" Height="27" Width="162" Click="BuyMarket" Grid.Column="1"/>
+                    <TextBlock x:Name="marketerTotal" HorizontalAlignment="Left" Margin="194,161,0,0" Text="Total Markets: 0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="83" Grid.Column="1"/>
+                    <TextBlock x:Name="marketerIncrease" HorizontalAlignment="Left" Margin="208,182,0,0" Text="x2 Per Sale" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="57" Grid.Column="1"/>
+                    <TextBlock x:Name="marketerCost" HorizontalAlignment="Left" Margin="176,0,0,0" Text="Gold To Buy Market: 10" TextWrapping="Wrap" VerticalAlignment="Center" RenderTransformOrigin="2.547,12.158" Height="16" Width="123" Grid.Column="1"/>
                 </Grid>
             </TabItem>
         </TabControl>
-        <TextBlock x:Name="wheatText" HorizontalAlignment="Left" Margin="489,9,0,0" Text="Wheat: 0/10" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="111"/>
-        <TextBlock x:Name="goldText" HorizontalAlignment="Left" Margin="633,9,0,0" Text="Gold Total: 0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="90" RenderTransformOrigin="-1.809,0.18"/>
-
+        <TextBlock x:Name="wheatText" HorizontalAlignment="Left" Margin="421,78,0,0" Text="Wheat: 0/10" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="111"/>
+        <TextBlock x:Name="goldText" HorizontalAlignment="Left" Margin="421,50,0,0" Text="Gold Total: 0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="90" RenderTransformOrigin="-1.809,0.18"/>
+        <TextBlock x:Name="stoneText" HorizontalAlignment="Left" Margin="421,108,0,0" Text="Stone: 0/5" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="90" RenderTransformOrigin="-1.809,0.18"/>
     </Grid>
 
 </Window>
