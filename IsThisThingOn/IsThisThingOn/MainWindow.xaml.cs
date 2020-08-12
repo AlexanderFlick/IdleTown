@@ -90,14 +90,21 @@ namespace IsThisThingOn
             marketIncrease.Text = "x" + wheats.Price + " Per Sale";
         }
 
-
         private void GetStone(object sender, RoutedEventArgs e)
         {
             stone.Gain(stones);
             UpdateStoneText();
         }
+
+        private void SellStone(object sender, RoutedEventArgs e)
+        {
+            stone.Sell(person, stones);
+            UpdateStoneText();
+        }
+
         private void UpdateStoneText()
         {
+            goldText.Text = "Total Gold: " + person.Gold;
             stoneText.Text = "Stone: " + stones.Total + "/" + stones.Max;
             stonePrices.Text = "Price: $" + stones.Price;
             stonePerClick.Text = "Stone Per Click: " + stones.PerClick;

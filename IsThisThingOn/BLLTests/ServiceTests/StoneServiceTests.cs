@@ -1,5 +1,6 @@
 ﻿using BLL.Models;
 using BLL.Services;
+using NSubstitute;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,8 @@ namespace BLLTests.ServiceTests
         [SetUp]
         public void Setup()
         {
-            _sut = new StoneService();
+            ItemService itemService = Substitute.For<ItemService>();
+            _sut = new StoneService(itemService);
         }
 
         [Test]

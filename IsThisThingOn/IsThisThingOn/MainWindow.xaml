@@ -48,7 +48,7 @@
                     </Grid.ColumnDefinitions>
                     <Button Content="Gather" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Height="27" Width="162" Click="GetStone" RenderTransformOrigin="1.315,0.594" Grid.ColumnSpan="2"/>
                     <TextBlock x:Name="stonePrices" HorizontalAlignment="Left" Margin="120,21,0,0" Text="Price: $4" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="48" RenderTransformOrigin="0.375,-0.422" Grid.Column="1"/>
-                    <Button Content="Sell" HorizontalAlignment="Left" Margin="154,88,0,0" VerticalAlignment="Top" Height="27" Width="162" Click="SellWheat" Grid.Column="1"/>
+                    <Button Content="Sell" HorizontalAlignment="Left" Margin="154,88,0,0" VerticalAlignment="Top" Height="27" Width="162" Click="SellStone" Grid.Column="1"/>
                     <Button Content="Hire Miner" HorizontalAlignment="Left" Margin="10,354,0,0" VerticalAlignment="Top" Width="163" Click="HireFarmer" Height="27" Grid.ColumnSpan="2"/>
                     <TextBlock x:Name="totalMiner" HorizontalAlignment="Left" Margin="9,283,0,0" Text="Total Miners: 0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="82" Grid.Column="1"/>
                     <TextBlock x:Name="minerGain" HorizontalAlignment="Left" Margin="13,304,0,0" Text="+1 Stone/click" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="80" Grid.Column="1"/>
