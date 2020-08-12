@@ -7,16 +7,16 @@
         mc:Ignorable="d"
         Title="Idle Town" Height="500" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <Button Content="Gather" HorizontalAlignment="Left" Margin="300,144,0,0" VerticalAlignment="Top" Height="27" Width="73" Click="GetWheat"/>
-        <TextBlock Name="wheatText" HorizontalAlignment="Left" Margin="348,74,0,0" Text="Wheat: 0/10" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock Name="wheatPrices" HorizontalAlignment="Left" Margin="358,95,0,0" Text="Price: $2" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Button Content="Sell" HorizontalAlignment="Left" Margin="388,144,0,0" VerticalAlignment="Top" Height="27" Width="75" Click="SellWheat"/>
+        <Button Content="Gather" HorizontalAlignment="Left" Margin="214,123,0,0" VerticalAlignment="Top" Height="27" Width="163" Click="GetWheat" RenderTransformOrigin="1.315,0.594"/>
+        <TextBlock Name="wheatText" HorizontalAlignment="Left" Margin="346,53,0,0" Text="Wheat: 0/10" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Name="wheatPrices" HorizontalAlignment="Left" Margin="356,74,0,0" Text="Price: $2" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button Content="Sell" HorizontalAlignment="Left" Margin="386,123,0,0" VerticalAlignment="Top" Height="27" Width="163" Click="SellWheat"/>
         <TextBlock Name="goldText" HorizontalAlignment="Left" Margin="347,27,0,0" Text="Gold Total: 0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="89" RenderTransformOrigin="-1.809,0.18"/>
         <Button Content="Hire Farmer" HorizontalAlignment="Left" Margin="215,283,0,0" VerticalAlignment="Top" Width="163" Click="HireFarmer" Height="27"/>
         <TextBlock Name="totalFarmer" HorizontalAlignment="Left" Margin="254,212,0,0" Text="Total Farmers: 0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock Name="farmerGain" HorizontalAlignment="Left" Margin="258,233,0,0" Text="+1 Wheat/click" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock Name="farmerCost" HorizontalAlignment="Left" Margin="236,254,0,0" Text="Gold To Hire Farmer: 20" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock Name="wheatPerClick" HorizontalAlignment="Left" Margin="333,116,0,0" Text="Wheat Per Click: 1" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Name="wheatPerClick" HorizontalAlignment="Left" Margin="331,95,0,0" Text="Wheat Per Click: 1" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Button Content="Buy Storage" HorizontalAlignment="Left" Margin="18,284,0,0" VerticalAlignment="Top" Width="163" Height="27" Click="BuyStorage"/>
         <TextBlock x:Name="storageTotal" HorizontalAlignment="Left" Margin="46,212,0,0" Text="Total Warehouses: 0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock Name="storageIncrease" HorizontalAlignment="Left" Margin="55,233,0,0" Text="+25 Max Wheat" TextWrapping="Wrap" VerticalAlignment="Top"/>

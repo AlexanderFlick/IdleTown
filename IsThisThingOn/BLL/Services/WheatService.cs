@@ -65,6 +65,10 @@ namespace BLL.Services
                 farmer.TotalHarvest = farmer.WheatPerSecond * farmer.Total;
                 wheat.Total = _is.Gather(wheat.Total, farmer.TotalHarvest);
             }
+            if (wheat.Total > wheat.Max)
+            {
+                wheat.Total = wheat.Max;
+            }
         }
 
         public void BuyStorage(Person person, Storage storage, Wheat wheat)
