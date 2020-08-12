@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Background.png" />
+    <None Remove="Mine.png" />
     <None Remove="Wheat1.png" />
   </ItemGroup>
 
@@ -24,6 +25,7 @@
 
   <ItemGroup>
     <Resource Include="Background.png" />
+    <Resource Include="Mine.png" />
     <Resource Include="Wheat1.png" />
   </ItemGroup>
 
