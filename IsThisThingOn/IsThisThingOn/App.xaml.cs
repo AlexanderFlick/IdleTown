@@ -11,9 +11,6 @@ using System.Windows;
 
 namespace IsThisThingOn
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
         public IServiceProvider ServiceProvider { get; private set; }
@@ -38,6 +35,7 @@ namespace IsThisThingOn
             services.AddSingleton<IItemService, ItemService>();
             services.AddSingleton<IWheatService, WheatService>();
             services.AddSingleton<ITimerService, TimerService>();
+            services.AddSingleton<IStoneService, StoneService>();
         }
     }
 }

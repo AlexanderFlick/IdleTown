@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IsThisThingOn"
         mc:Ignorable="d"
-        Title="Idle Town" Height="500" Width="1000" Loaded="Window_Loaded">
-    <Grid Height="478" Background="FloralWhite">
+        Title="Idle Town" Height="550" Width="854" Loaded="Window_Loaded">
+    <Grid Height="509" Background="FloralWhite" HorizontalAlignment="Center" Width="838" RenderTransformOrigin="0.5,0.5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="799*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TabControl Margin="0,26,595,0">
+        <TabControl Margin="0,32,426,0">
             <TabItem Header="Wheat">
-                <Grid Background="#FFE5E5E5" HorizontalAlignment="Left" Width="392" Height="413">
+                <Grid Background="#FFE5E5E5" Height="405" Margin="10,0,10,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="76*"/>
                         <ColumnDefinition Width="675*"/>
@@ -39,14 +39,14 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Stone">
-                <Grid Background="#FFE5E5E5" Margin="0,0,6,0" Height="414">
+                <Grid Background="#FFE5E5E5" Margin="10,0,10,0" Height="408">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="40*"/>
                         <ColumnDefinition Width="341*"/>
                         <ColumnDefinition Width="11*"/>
                         <ColumnDefinition Width="0*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="Gather" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Height="27" Width="162" Click="GetWheat" RenderTransformOrigin="1.315,0.594" Grid.ColumnSpan="2"/>
+                    <Button Content="Gather" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Height="27" Width="162" Click="GetStone" RenderTransformOrigin="1.315,0.594" Grid.ColumnSpan="2"/>
                     <TextBlock x:Name="stonePrices" HorizontalAlignment="Left" Margin="120,21,0,0" Text="Price: $4" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="48" RenderTransformOrigin="0.375,-0.422" Grid.Column="1"/>
                     <Button Content="Sell" HorizontalAlignment="Left" Margin="154,88,0,0" VerticalAlignment="Top" Height="27" Width="162" Click="SellWheat" Grid.Column="1"/>
                     <Button Content="Hire Miner" HorizontalAlignment="Left" Margin="10,354,0,0" VerticalAlignment="Top" Width="163" Click="HireFarmer" Height="27" Grid.ColumnSpan="2"/>
@@ -65,9 +65,9 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <TextBlock x:Name="wheatText" HorizontalAlignment="Left" Margin="421,78,0,0" Text="Wheat: 0/10" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="111"/>
-        <TextBlock x:Name="goldText" HorizontalAlignment="Left" Margin="421,50,0,0" Text="Gold Total: 0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="90" RenderTransformOrigin="-1.809,0.18"/>
-        <TextBlock x:Name="stoneText" HorizontalAlignment="Left" Margin="421,108,0,0" Text="Stone: 0/5" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="90" RenderTransformOrigin="-1.809,0.18"/>
+        <TextBlock x:Name="wheatText" HorizontalAlignment="Left" Margin="121,10,0,0" Text="Wheat: 0/10" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="95"/>
+        <TextBlock x:Name="goldText" HorizontalAlignment="Left" Margin="10,10,0,0" Text="Gold Total: 0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="95" RenderTransformOrigin="-1.809,0.18"/>
+        <TextBlock x:Name="stoneText" HorizontalAlignment="Left" Margin="231,10,0,0" Text="Stone: 0/5" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="95" RenderTransformOrigin="-1.809,0.18"/>
     </Grid>
 
 </Window>
