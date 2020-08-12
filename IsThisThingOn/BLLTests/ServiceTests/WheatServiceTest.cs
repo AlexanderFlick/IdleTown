@@ -78,14 +78,15 @@ namespace BLLTests.ServiceTests
         }
 
         [Test]
-        public void HireFarmerIfEnoughGold()
+        public void HireCorrectNumberOfFarmers()
         {
             var person = GenerateTestPerson();
             var wheat = GenerateTestWheat();
             var farmer = GenerateTestFarmer();
+            farmer.PerClick = 2;
 
             _sut.HireFarmer(person, farmer, wheat);
-            var expected = 1;
+            var expected = 2;
             var actual = farmer.Total;
             Assert.AreEqual(expected, actual);
         }

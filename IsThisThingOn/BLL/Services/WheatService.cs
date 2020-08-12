@@ -50,7 +50,7 @@ namespace BLL.Services
             if(farmer.Cost <= person.Gold)
             {
                 person.Gold = _is.Pay(person.Gold, farmer.Cost);
-                farmer.Total++;
+                farmer.Total = _is.Gather(farmer.Total, farmer.PerClick);
                 farmer.Active = true;
             }
         }

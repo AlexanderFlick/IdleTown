@@ -12,5 +12,6 @@ namespace BLL.Models
         public bool Active { get; set; } = false;
         public int WheatPerSecond { get; set; } = 1;
         public int TotalHarvest { get; set; }
+        public int PerClick { get; set; } = 1;
     }
 }

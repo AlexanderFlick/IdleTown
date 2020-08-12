@@ -4,6 +4,7 @@
     {
         int Gather(int total, int delta);
         int Pay(int total, int cost);
+        int IncreasePriceOnPurchase(int costOfIncrease, int price)
     }
     public class ItemService : IItemService
     {
@@ -20,6 +21,12 @@
                 total -= cost;
             }
             return total;
+        }
+
+        public int IncreasePriceOnPurchase(int costOfIncrease, int price)
+        {
+            price *= costOfIncrease;
+            return price;
         }
     }
 }
