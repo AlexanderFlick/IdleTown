@@ -8,7 +8,7 @@ namespace BLL.Services
 
         void Sell(Person person, Wheat wheat);
 
-        void HireFarmer(Person person, Farmer farmer, Wheat wheat);
+        void HireFarmer(Person person, Farmer farmer);
 
         void Harvest(Farmer farmer, Wheat wheat);
 
@@ -48,7 +48,7 @@ namespace BLL.Services
             }
         }
 
-        public void HireFarmer(Person person, Farmer farmer, Wheat wheat)
+        public void HireFarmer(Person person, Farmer farmer)
         {
             if (farmer.Cost <= person.Gold)
             {
@@ -88,7 +88,6 @@ namespace BLL.Services
                 person.Gold = _is.PayFor(person.Gold, market.Cost);
                 market.Total = _is.Gather(market.Total, market.PerClick);
                 wheat.Price = _is.IncreasePriceOnPurchase(market.Multiplier, wheat.Price);
-                //wheat.Price *= 2;
             }
         }
     }

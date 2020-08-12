@@ -85,7 +85,7 @@ namespace BLLTests.ServiceTests
             var farmer = GenerateTestFarmer();
             farmer.PerClick = 2;
 
-            _sut.HireFarmer(person, farmer, wheat);
+            _sut.HireFarmer(person, farmer);
             var expected = 2;
             var actual = farmer.Total;
             Assert.AreEqual(expected, actual);
@@ -98,7 +98,7 @@ namespace BLLTests.ServiceTests
             var wheat = GenerateTestWheat();
             var farmer = GenerateTestFarmer();
 
-            _sut.HireFarmer(person, farmer, wheat);
+            _sut.HireFarmer(person, farmer);
             var expected = true;
             var actual = farmer.Active;
             Assert.AreEqual(expected, actual);
@@ -111,7 +111,7 @@ namespace BLLTests.ServiceTests
             var wheat = GenerateTestWheat();
             var farmer = GenerateTestFarmer();
 
-            _sut.HireFarmer(person, farmer, wheat);
+            _sut.HireFarmer(person, farmer);
             var expected = 1;
             var actual = person.Gold;
             Assert.AreEqual(expected, actual);
@@ -124,7 +124,7 @@ namespace BLLTests.ServiceTests
             var wheat = GenerateTestWheat();
             var farmer = GenerateTestFarmer();
 
-            _sut.HireFarmer(person, farmer, wheat);
+            _sut.HireFarmer(person, farmer);
             var expected = 10;
             var actual = wheat.Max;
             Assert.AreEqual(expected, actual);

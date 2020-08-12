@@ -33,14 +33,16 @@ namespace IsThisThingOn
         {
             DispatcherTimer dt = new DispatcherTimer();
             dt.Interval = TimeSpan.FromMilliseconds(farmer.HarvestRate);
-            dt.Tick += farmerTicker;
+            dt.Tick += HarvestTicker;
             dt.Start();
         }
 
-        private void farmerTicker(object sender, EventArgs e)
+        private void HarvestTicker(object sender, EventArgs e)
         {
             wheat.Harvest(farmer, wheats);
+            stone.Harvest(miner, stones);
             UpdateWheatText();
+            UpdateStoneText();
         }
 
         private void GetWheat(object sender, RoutedEventArgs e)
@@ -57,7 +59,7 @@ namespace IsThisThingOn
 
         private void HireFarmer(object sender, RoutedEventArgs e)
         {
-            wheat.HireFarmer(person, farmer, wheats);
+            wheat.HireFarmer(person, farmer);
             UpdateWheatText();
         }
 
@@ -99,6 +101,18 @@ namespace IsThisThingOn
         private void SellStone(object sender, RoutedEventArgs e)
         {
             stone.Sell(person, stones);
+            UpdateStoneText();
+        }
+
+        private void HireMiner(object sender, RoutedEventArgs e)
+        {
+            stone.HireMiner(person, miner);
+            UpdateStoneText();
+        }
+
+        private void BuyWarehouse(object sender, RoutedEventArgs e)
+        {
+            stone.BuyWarehouse(person, warehouse, stones);
             UpdateStoneText();
         }
 
