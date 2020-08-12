@@ -13,5 +13,6 @@ namespace BLL.Models
         public int WheatPerSecond { get; set; } = 1;
         public int TotalHarvest { get; set; }
         public int PerClick { get; set; } = 1;
+        public int IncreaseWithPurchase { get; set; } = 10;
     }
 }

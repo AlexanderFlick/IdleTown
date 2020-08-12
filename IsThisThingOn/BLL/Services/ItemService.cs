@@ -3,8 +3,8 @@
     public interface IItemService
     {
         int Gather(int total, int delta);
-        int Pay(int total, int cost);
-        int IncreasePriceOnPurchase(int costOfIncrease, int price)
+        int PayFor(int total, int cost);
+        int IncreasePriceOnPurchase(int costOfIncrease, int price);
     }
     public class ItemService : IItemService
     {
@@ -14,7 +14,7 @@
             return total;
         }
 
-        public int Pay(int total, int cost)
+        public int PayFor(int total, int cost)
         {
             if(cost <= total)
             {

@@ -1,28 +1,31 @@
 ﻿using BLL.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BLL.Services
 {
     public interface IWheatService
     {
         void Gain(Wheat wheat);
+
         void Sell(Person person, Wheat wheat);
+
         void HireFarmer(Person person, Farmer farmer, Wheat wheat);
+
         void Harvest(Farmer farmer, Wheat wheat);
+
         void BuyStorage(Person person, Storage storage, Wheat wheat);
+
         void BuyMarket(Person person, Markets market, Wheat wheat);
     }
+
     public class WheatService : IWheatService
     {
         private IItemService _is;
-        
+
         public WheatService(IItemService itemService)
         {
             _is = itemService;
         }
-        
+
         public void Gain(Wheat wheat)
         {
             if (wheat.Total >= wheat.Max)
@@ -47,9 +50,9 @@ namespace BLL.Services
 
         public void HireFarmer(Person person, Farmer farmer, Wheat wheat)
         {
-            if(farmer.Cost <= person.Gold)
+            if (farmer.Cost <= person.Gold)
             {
-                person.Gold = _is.Pay(person.Gold, farmer.Cost);
+                person.Gold = _is.PayFor(person.Gold, farmer.Cost);
                 farmer.Total = _is.Gather(farmer.Total, farmer.PerClick);
                 farmer.Active = true;
             }
@@ -66,21 +69,22 @@ namespace BLL.Services
 
         public void BuyStorage(Person person, Storage storage, Wheat wheat)
         {
-            if(storage.Cost <= person.Gold)
+            if (storage.Cost <= person.Gold)
             {
-                _is.Pay(person.Gold, storage.Cost);
-                storage.Total++;
-                wheat.Max += storage.IncreaseWheatMax;
+                person.Gold = _is.PayFor(person.Gold, storage.Cost);
+                storage.Total = _is.Gather(storage.Total, storage.PerClick);
+                wheat.Max = _is.Gather(wheat.Max, storage.IncreaseWheatMax);
             }
         }
 
         public void BuyMarket(Person person, Markets market, Wheat wheat)
         {
-            if(market.Cost <= person.Gold)
+            if (market.Cost <= person.Gold)
             {
-                _is.Pay(person.Gold, market.Cost);
-                market.Total++;
-                wheat.Price *= 2;
+                person.Gold = _is.PayFor(person.Gold, market.Cost);
+                market.Total = _is.Gather(market.Total, market.PerClick);
+                wheat.Price = _is.IncreasePriceOnPurchase(market.Multiplier, wheat.Price);
+                //wheat.Price *= 2;
             }
         }
     }

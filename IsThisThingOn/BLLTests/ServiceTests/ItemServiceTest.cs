@@ -43,7 +43,7 @@ namespace BLLTests
             var farmer = GenerateTestFarmer();
 
             var expected = 1;
-            var actual = _sut.Pay(person.Gold, farmer.Cost);
+            var actual = _sut.PayFor(person.Gold, farmer.Cost);
             Assert.AreEqual(expected, actual);
         }
 
@@ -55,7 +55,20 @@ namespace BLLTests
             farmer.Cost = 100;
 
             var expected = 2;
-            var actual = _sut.Pay(person.Gold, farmer.Cost);
+            var actual = _sut.PayFor(person.Gold, farmer.Cost);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void IncreasePriceOfItem()
+        {
+            var person = GenerateTestPerson();
+            var farmer = GenerateTestFarmer();
+            farmer.Cost = 4;
+            farmer.IncreaseWithPurchase = 2;
+
+            var expected = 8;
+            var actual = _sut.IncreasePriceOnPurchase(farmer.IncreaseWithPurchase, farmer.Cost);
             Assert.AreEqual(expected, actual);
         }
 
