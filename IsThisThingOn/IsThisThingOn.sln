@@ -5,9 +5,16 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IsThisThingOn", "IsThisThingOn\IsThisThingOn.csproj", "{DCA35EE1-47F4-49F6-AF6A-637B7827DAE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{96950ACE-64FB-4FF5-ADF1-C5DE44BFE01F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{96950ACE-64FB-4FF5-ADF1-C5DE44BFE01F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLLTests", "BLLTests\BLLTests.csproj", "{A9AB8DD3-DD19-4A65-A0E3-E505650AAE5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLLTests", "BLLTests\BLLTests.csproj", "{A9AB8DD3-DD19-4A65-A0E3-E505650AAE5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{19E08FBA-0779-4B2A-A7C8-E9C6BBE5EDFA}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Pictures\IsThisThingOn\Background.png = ..\..\..\..\Pictures\IsThisThingOn\Background.png
+		..\..\..\..\Pictures\IsThisThingOn\Wheat.png = ..\..\..\..\Pictures\IsThisThingOn\Wheat.png
+		..\..\..\..\Pictures\IsThisThingOn\Wheat1.png = ..\..\..\..\Pictures\IsThisThingOn\Wheat1.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
