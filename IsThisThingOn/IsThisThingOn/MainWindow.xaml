@@ -11,8 +11,8 @@
             <ColumnDefinition Width="799*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TabControl Margin="0,32,1,0" Grid.ColumnSpan="2">
-            <TabItem Header="Wheat">
+        <TabControl Margin="0,32,0,-9" Grid.ColumnSpan="2">
+            <TabItem Header="Wheat" Margin="-2,-2,-48,0">
                 <Grid Background="Beige" Height="405" Margin="10,0,10,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="76*"/>
@@ -41,7 +41,7 @@
                     <Image Grid.Column="1" HorizontalAlignment="Left" Height="125" Margin="261,40,0,0" VerticalAlignment="Top" Width="128" Source="Wheat1.png"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Stone" Height="20" VerticalAlignment="Top">
+            <TabItem Header="Stone" Height="20" VerticalAlignment="Top" Margin="47,-1,-97,0">
                 <Grid Background="#FFE5E5E5" Margin="10,0,10,0" Height="408">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="40*"/>
@@ -69,11 +69,32 @@
                     <TextBlock x:Name="marketerCost" HorizontalAlignment="Left" Margin="154,321,0,0" Text="Gold To Buy Market: 10" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="2.547,12.158" Height="16" Width="123" Grid.Column="1"/>
                 </Grid>
             </TabItem>
+            <TabItem Header="Market" Margin="557,-2,-594,0">
+                <Grid Background="Beige" Height="405" Margin="10,0,10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="76*"/>
+                        <ColumnDefinition Width="675*"/>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition Width="0*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Height="408" VerticalAlignment="Center" Grid.ColumnSpan="3" Source="Background.png" Stretch="Fill" Margin="0,0,1,0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Townspeople" Margin="592,-2,-611,0">
+                <Grid Background="Beige" Height="405" Margin="10,0,10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="76*"/>
+                        <ColumnDefinition Width="675*"/>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition Width="0*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Height="408" VerticalAlignment="Center" Grid.ColumnSpan="3" Source="Background.png" Stretch="Fill" Margin="0,0,1,0"/>
+                </Grid>
+            </TabItem>
         </TabControl>
-        <TextBlock x:Name="wheatText" HorizontalAlignment="Left" Margin="121,10,0,0" Text="Wheat: 0/10" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="95"/>
-        <TextBlock x:Name="goldText" HorizontalAlignment="Left" Margin="10,10,0,0" Text="Gold Total: 0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="95" RenderTransformOrigin="-1.809,0.18"/>
-        <TextBlock x:Name="stoneText" HorizontalAlignment="Left" Margin="231,10,0,0" Text="Stone: 0/5" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="95" RenderTransformOrigin="-1.809,0.18"/>
-        <TextBlock x:Name="lumberText" HorizontalAlignment="Left" Margin="331,10,0,0" Text="Lumber: 0/5" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="95" RenderTransformOrigin="-1.809,0.18"/>
+        <TextBlock x:Name="wheatText" HorizontalAlignment="Left" Margin="180,6,0,0" Text="Wheat: 0/10" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="95"/>
+        <TextBlock x:Name="goldText" HorizontalAlignment="Left" Margin="27,6,0,0" Text="Gold Total: 0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="95" RenderTransformOrigin="-1.809,0.18"/>
+        <TextBlock x:Name="stoneText" HorizontalAlignment="Left" Margin="324,6,0,0" Text="Stone: 0/5" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="95" RenderTransformOrigin="-1.809,0.18"/>
     </Grid>
 
 </Window>

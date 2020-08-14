@@ -4,8 +4,4 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="EcoCore" Version="7.0.0.12440" />
-  </ItemGroup>
-
 </Project>

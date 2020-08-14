@@ -6,7 +6,7 @@ namespace BLL.Models
 {
     public class Miner : BasicWorker
     {
-        public int HarvestRate { get; set; } = 2000;
+        public int HarvestRate { get; set; } = 1000;
         public int StonePerSecond { get; set; } = 1;
     }
 }
