@@ -4,11 +4,8 @@ using System.Text;
 
 namespace BLL.Models
 {
-    public class Storage
+    public class Storage : BasicStorage
     {
-        public int Total { get; set; }
-        public int Cost { get; set; } = 4;
         public int IncreaseWheatMax { get; set; } = 25;
-        public int PerClick { get; set; } = 1;
     }
 }
