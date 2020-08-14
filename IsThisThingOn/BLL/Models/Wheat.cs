@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BLL.Models
 {
-    public class Wheat
+    public class Wheat : BasicResource
     {
         public int Total { get; set; }
         public int Max { get; set; } = 10;

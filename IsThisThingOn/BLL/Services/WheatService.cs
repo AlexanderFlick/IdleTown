@@ -66,7 +66,7 @@ namespace BLL.Services
                 wheat.Max = _is.Gather(wheat.Max, storage.IncreaseWheatMax);
             }
         }
-
+        
         public void BuyMarket(Person person, Markets market, Wheat wheat)
         {
             if (market.Cost <= person.Gold)
