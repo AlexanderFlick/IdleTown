@@ -26,6 +26,16 @@ namespace BLLTests
         }
 
         [Test]
+        public void WhenYouGatherAnItem_CanNotGainMoreThanMax()
+        {
+            var total = 10;
+            var max = 5;
+            var expected = 5;
+            var actual = _sut.CanNotEarnMoreThanMax(total, max);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
         public void WhenYouGainGold_YouEarnBasedOnItemPrice()
         {
             var person = GenerateTestPerson();
