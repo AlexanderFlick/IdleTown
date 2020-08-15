@@ -46,7 +46,7 @@
                         <ColumnDefinition Width="0*"/>
                     </Grid.ColumnDefinitions>
                     <Image Height="408" VerticalAlignment="Center" Grid.ColumnSpan="3" Source="Background.png" Stretch="Fill" Margin="0,0,1,0"/>
-                    <Image Grid.Column="1" HorizontalAlignment="Left" Height="190" Margin="235,22,0,0" VerticalAlignment="Top" Width="251" Source="Mine.png"/>
+                    <Image Grid.Column="1" HorizontalAlignment="Left" Height="190" Margin="223,14,0,0" VerticalAlignment="Top" Width="251" Source="Mine.png"/>
                     <Button Content="Gather" HorizontalAlignment="Left" Margin="144,254,0,0" VerticalAlignment="Top" Height="27" Width="162" Click="GetStone" RenderTransformOrigin="1.315,0.594" Grid.Column="1"/>
                     <TextBlock x:Name="stonePrices" HorizontalAlignment="Left" Margin="299,187,0,0" Text="Price: $4" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="167" RenderTransformOrigin="0.375,-0.422" Grid.Column="1"/>
                     <Button Content="Sell" HorizontalAlignment="Left" Margin="333,254,0,0" VerticalAlignment="Top" Height="27" Width="162" Click="SellStone" Grid.Column="1"/>
