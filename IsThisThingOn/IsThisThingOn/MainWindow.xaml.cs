@@ -41,7 +41,7 @@ namespace IsThisThingOn
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DispatcherTimer dt = new DispatcherTimer();
-            dt.Interval = TimeSpan.FromMilliseconds(farmers.HarvestRate);
+            dt.Interval = TimeSpan.FromMilliseconds(1000);
             dt.Tick += HarvestTicker;
             dt.Start();
         }
