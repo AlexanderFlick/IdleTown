@@ -20,14 +20,8 @@ namespace BLL.Services
 
         public void Gain(Stone stone)
         {
-            if (stone.Total >= stone.Max)
-            {
-                stone.Total = stone.Max;
-            }
-            else
-            {
-                stone.Total = _is.Gather(stone.Total, stone.PerClick);
-            }
+            stone.Total = _is.Gather(stone.Total, stone.PerClick);
+            stone.Total = _is.CanNotEarnMoreThanMax(stone.Total, stone.Max);
         }
 
         public void BuyWarehouse(Person person, Warehouse warehouse, Stone stone)

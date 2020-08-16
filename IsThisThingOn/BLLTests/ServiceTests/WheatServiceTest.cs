@@ -40,44 +40,6 @@ namespace BLLTests.ServiceTests
         }
 
         [Test]
-        public void WhenYouSellWheat_TotalDecreases()
-        {
-            var person = GenerateTestPerson();
-            var wheat = GenerateTestWheat();
-
-            _sut.Sell(person, wheat);
-            var expected = 4;
-            var actual = wheat.Total;
-            Assert.AreEqual(expected, actual);
-        }
-
-        [Test]
-        public void CantSellWheatIfTotalIsZero()
-        {
-            var person = GenerateTestPerson();
-            var wheat = GenerateTestWheat();
-
-            wheat.Total = 0;
-            _sut.Sell(person, wheat);
-            var expected = 0;
-            var actual = wheat.Total;
-            Assert.AreEqual(expected, actual);
-        }
-
-        [Test]
-        public void DontEarnGoldIfWheatTotalIsZero()
-        {
-            var person = GenerateTestPerson();
-            var wheat = GenerateTestWheat();
-
-            wheat.Total = 0;
-            _sut.Sell(person, wheat);
-            var expected = 2;
-            var actual = person.Gold;
-            Assert.AreEqual(expected, actual);
-        }
-
-        [Test]
         public void BuyStorageIfEnoughGold()
         {
             var person = GenerateTestPerson();
@@ -118,7 +80,6 @@ namespace BLLTests.ServiceTests
             {
                 Total = 5,
                 Max = 10,
-                Price = 2,
                 Earn = false,
                 PerClick = 1,
             };

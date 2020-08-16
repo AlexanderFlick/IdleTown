@@ -79,7 +79,7 @@ namespace BLLTests
             var merchant = GenerateTestMerchant();
             var wheat = GenerateTestWheat();
             merchant.WheatQuantitySold = 2;
-            _sut.Sell(wheat.Total, merchant.WheatQuantitySold);
+            wheat.Total = _sut.Sell(wheat.Total, merchant.WheatQuantitySold);
 
             var expected = 3;
             var actual = wheat.Total;
