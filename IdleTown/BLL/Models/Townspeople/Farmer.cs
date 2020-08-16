@@ -6,7 +6,6 @@ namespace BLL.Models
 {
     public class Farmer : BasicWorker
     {
-        public int HarvestRate { get; set; } = 1000;
         public int WheatPerSecond { get; set; } = 1;
     }
 }
