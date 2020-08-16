@@ -9,6 +9,8 @@ namespace BLL.Services.WorkerServices
     public interface IMerchantService
     {
         void Hire(Person person, Merchant merchant);
+        void SellWheat(Person person, Merchant merchant, Wheat wheat);
+        void SellStone(Person person, Merchant merchant, Stone stone);
     }
     public class MerchantService : IMerchantService
     {

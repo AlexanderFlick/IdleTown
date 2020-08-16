@@ -130,7 +130,6 @@ namespace BLLTests
         {
             return new Farmer
             {
-                Total = 0,
                 Cost = 1,
                 HarvestRate = 1,
                 WheatPerSecond = 1,

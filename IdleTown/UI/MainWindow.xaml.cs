@@ -52,17 +52,26 @@ namespace IsThisThingOn
             miner.Harvest(miners, stones);
             UpdateWheatText();
             UpdateStoneText();
+            UpdateMarketText();
         }
 
-        private void GetWheat(object sender, RoutedEventArgs e)
+        private void BuyWarehouse(object sender, RoutedEventArgs e)
         {
-            wheat.Gain(wheats);
-            UpdateWheatText();
+            stone.BuyWarehouse(person, warehouse, stones);
+            UpdateStoneText();
         }
 
-        private void SellWheat(object sender, RoutedEventArgs e)
+        private void UpdateMarketText()
         {
-            //wheat.Sell(person, wheats);
+            stoneMarketPrices.Text = "Stone Price: " + merchants.StonePrice;
+            wheatMarketPrices.Text = "Wheat Price: " + merchants.WheatPrice;
+        }
+
+        #region Townspeople
+
+        private void HireMerchant(object sender, RoutedEventArgs e)
+        {
+            merchant.Hire(person, merchants);
             UpdateWheatText();
         }
 
@@ -72,15 +81,41 @@ namespace IsThisThingOn
             UpdateWheatText();
         }
 
-        private void BuyStorage(object sender, RoutedEventArgs e)
+        private void HireMiner(object sender, RoutedEventArgs e)
         {
-            wheat.BuyStorage(person, storage, wheats);
+            miner.Hire(person, miners);
+            UpdateStoneText();
+        }
+
+        #endregion Townspeople
+
+        #region MerchantFeatures
+
+        private void SellStone(object sender, RoutedEventArgs e)
+        {
+            merchant.SellStone(person, merchants, stones);
+            UpdateStoneText();
+        }
+
+        private void SellWheat(object sender, RoutedEventArgs e)
+        {
+            merchant.SellWheat(person, merchants, wheats);
             UpdateWheatText();
         }
 
-        private void BuyWheatMarket(object sender, RoutedEventArgs e)
+        #endregion MerchantFeatures
+
+        #region Wheat
+
+        private void GetWheat(object sender, RoutedEventArgs e)
         {
-            //Need to update merchant with UI
+            wheat.Gain(wheats);
+            UpdateWheatText();
+        }
+
+        private void BuyStorage(object sender, RoutedEventArgs e)
+        {
+            wheat.BuyStorage(person, storage, wheats);
             UpdateWheatText();
         }
 
@@ -96,27 +131,13 @@ namespace IsThisThingOn
             storageCost.Text = "Storage Gold Cost: " + storage.Cost;
         }
 
+        #endregion Wheat
+
+        #region Stone
+
         private void GetStone(object sender, RoutedEventArgs e)
         {
             stone.Gain(stones);
-            UpdateStoneText();
-        }
-
-        private void SellStone(object sender, RoutedEventArgs e)
-        {
-            //stone.Sell(person, stones);
-            UpdateStoneText();
-        }
-
-        private void HireMiner(object sender, RoutedEventArgs e)
-        {
-            //
-            UpdateStoneText();
-        }
-
-        private void BuyWarehouse(object sender, RoutedEventArgs e)
-        {
-            stone.BuyWarehouse(person, warehouse, stones);
             UpdateStoneText();
         }
 
@@ -132,10 +153,6 @@ namespace IsThisThingOn
             //warehouseIncrease.Text = "+" + stones.Price + " Max Wheat";
         }
 
-        private void UpdateMarketText()
-        {
-            stoneMarketPrices.Text = "Stone Price: " + merchants.StonePrice;
-            wheatMarketPrices.Text = "Wheat Price: " + merchants.WheatPrice;
-        }
+        #endregion Stone
     }
 }

@@ -89,7 +89,6 @@ namespace BLLTests.ServiceTests
         {
             return new Farmer
             {
-                Total = 0,
                 Cost = 1,
             };
         }
