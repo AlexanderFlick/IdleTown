@@ -8,5 +8,7 @@ namespace BLL.Models.Market
     {
         public int WheatMultiplier { get; set; }
         public int StoneMultiplier { get; set; }
+        public int WheatPrice { get; set; }
+        public int StonePrice { get; set; }
     }
 }

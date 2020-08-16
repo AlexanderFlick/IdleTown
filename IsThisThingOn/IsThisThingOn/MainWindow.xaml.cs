@@ -1,5 +1,7 @@
 ﻿using BLL.Models;
+using BLL.Models.Market;
 using BLL.Services;
+using BLL.Services.WorkerServices;
 using System;
 using System.Windows;
 using System.Windows.Threading;
@@ -14,20 +16,23 @@ namespace IsThisThingOn
         private Farmer farmers = new Farmer();
         private Storage storage = new Storage();
         private Stone stones = new Stone();
-        private Miner miner = new Miner();
+        private Miner miners = new Miner();
         private Warehouse warehouse = new Warehouse();
+        private Merchant merchant = new Merchant();
 
         private readonly IWheatService wheat;
         private readonly ITimerService timer;
         private readonly IStoneService stone;
         private readonly IFarmerService farmer;
+        private readonly IMinerService miner;
 
-        public MainWindow(IWheatService wheat, ITimerService timer, IStoneService stone, IFarmerService farmer)
+        public MainWindow(IWheatService wheat, ITimerService timer, IStoneService stone, IFarmerService farmer, IMinerService miner)
         {
             this.wheat = wheat;
             this.timer = timer;
             this.stone = stone;
             this.farmer = farmer;
+            this.miner = miner;
             InitializeComponent();
         }
 
@@ -42,7 +47,7 @@ namespace IsThisThingOn
         private void HarvestTicker(object sender, EventArgs e)
         {
             farmer.Harvest(farmers, wheats);
-            stone.Harvest(miner, stones);
+            stone.Harvest(miners, stones);
             UpdateWheatText();
             UpdateStoneText();
         }
@@ -103,7 +108,7 @@ namespace IsThisThingOn
 
         private void HireMiner(object sender, RoutedEventArgs e)
         {
-            stone.HireMiner(person, miner);
+            stone.HireMiner(person, miners);
             UpdateStoneText();
         }
 
@@ -118,8 +123,8 @@ namespace IsThisThingOn
             goldText.Text = "Total Gold: " + person.Gold;
             stoneText.Text = "Stone: " + stones.Total + "/" + stones.Max;
             stonePerClick.Text = "Stone Per Click: " + stones.PerClick;
-            minerGain.Text = "+" + miner.TotalHarvest + " Stone/sec";
-            minerCost.Text = "Gold To Hire Miner: " + miner.Cost;
+            minerGain.Text = "+" + miners.TotalHarvest + " Stone/sec";
+            minerCost.Text = "Gold To Hire Miner: " + miners.Cost;
             warehouseCost.Text = "Warehouse Gold Cost: " + market.Cost;
             warehouseTotal.Text = "Total Warehouses: " + market.Total;
             warehouseIncrease.Text = "+" + stones.Price + " Max Wheat";
