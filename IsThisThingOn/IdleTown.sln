@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IsThisThingOn", "IsThisThingOn\IsThisThingOn.csproj", "{DCA35EE1-47F4-49F6-AF6A-637B7827DAE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "IsThisThingOn\UI.csproj", "{DCA35EE1-47F4-49F6-AF6A-637B7827DAE6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{96950ACE-64FB-4FF5-ADF1-C5DE44BFE01F}"
 EndProject
