@@ -1,11 +1,14 @@
-using BLL.Models;
+﻿using BLL.Models;
 using BLL.Models.Market;
 using BLL.Services;
 using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace BLLTests
+namespace BLLTests.ServiceTests
 {
-    public class ItemServiceTest
+    class ItemServiceTests
     {
         private ItemService _sut;
 
