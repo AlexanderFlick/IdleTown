@@ -1,15 +1,14 @@
 ﻿using BLL.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BLL.Services
 {
     public interface IFarmerService
     {
         void Hire(Person person, Farmer farmer);
+
         void Harvest(Farmer farmer, Wheat wheat);
     }
+
     public class FarmerService : IFarmerService
     {
         private IItemService _is;

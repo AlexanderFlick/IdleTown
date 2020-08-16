@@ -5,8 +5,8 @@ namespace BLL.Services
     public interface IStoneService
     {
         void Gain(Stone stone);
-        void BuyWarehouse(Person person, Warehouse warehouse, Stone stone);
 
+        void BuyWarehouse(Person person, Warehouse warehouse, Stone stone);
     }
 
     public class StoneService : IStoneService

@@ -1,9 +1,7 @@
 using BLL.Models;
 using BLL.Models.Market;
 using BLL.Services;
-using NSubstitute;
 using NUnit.Framework;
-using System;
 
 namespace BLLTests
 {

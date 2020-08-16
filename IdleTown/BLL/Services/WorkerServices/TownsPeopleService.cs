@@ -3,8 +3,10 @@
     public interface ITownsPeopleService
     {
         bool Hire(int gold, int hiringCost);
+
         int PayForHire(int gold, int hiringCost);
     }
+
     public class TownsPeopleService : ITownsPeopleService
     {
         private IItemService _is;
@@ -17,7 +19,7 @@
         public bool Hire(int gold, int hiringCost)
         {
             var isActive = false;
-            if(hiringCost <= gold)
+            if (hiringCost <= gold)
             {
                 isActive = true;
             }

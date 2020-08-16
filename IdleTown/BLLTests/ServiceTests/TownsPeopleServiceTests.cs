@@ -2,9 +2,6 @@
 using BLL.Services;
 using NSubstitute;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BLLTests.ServiceTests
 {
@@ -37,7 +34,6 @@ namespace BLLTests.ServiceTests
             var gold = 6;
             _sut.Hire(gold, farmer.Cost);
 
-
             var expected = false;
             var actual = farmer.Active;
             Assert.AreEqual(expected, actual);
@@ -65,6 +61,7 @@ namespace BLLTests.ServiceTests
                 HarvestRate = 2,
             };
         }
+
         private Person GenerateTestPerson()
         {
             return new Person

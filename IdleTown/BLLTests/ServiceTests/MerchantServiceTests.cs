@@ -4,16 +4,13 @@ using BLL.Services;
 using BLL.Services.WorkerServices;
 using NSubstitute;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BLLTests.ServiceTests
 {
     public class MerchantServiceTests
     {
         private MerchantService _sut;
-        
+
         [SetUp]
         public void Setup()
         {

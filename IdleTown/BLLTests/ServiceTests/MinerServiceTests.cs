@@ -79,6 +79,7 @@ namespace BLLTests.ServiceTests
                 Gold = 2,
             };
         }
+
         private Wheat GenerateTestWheat()
         {
             return new Wheat
@@ -88,6 +89,5 @@ namespace BLLTests.ServiceTests
                 PerClick = 1,
             };
         }
-
     }
 }

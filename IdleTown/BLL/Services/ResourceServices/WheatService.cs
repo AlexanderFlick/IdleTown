@@ -5,6 +5,7 @@ namespace BLL.Services
     public interface IWheatService
     {
         void Gain(Wheat wheat);
+
         void BuyStorage(Person person, Storage storage, Wheat wheat);
     }
 

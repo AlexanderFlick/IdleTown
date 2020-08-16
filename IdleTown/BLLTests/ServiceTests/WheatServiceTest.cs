@@ -65,6 +65,7 @@ namespace BLLTests.ServiceTests
             var actual = storage.Total;
             Assert.AreEqual(expected, actual);
         }
+
         private Person GenerateTestPerson()
         {
             return new Person
