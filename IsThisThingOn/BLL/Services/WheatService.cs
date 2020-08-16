@@ -6,8 +6,6 @@ namespace BLL.Services
     {
         void Gain(Wheat wheat);
         void Sell(Person person, Wheat wheat);
-        void HireFarmer(Person person, Farmer farmer);
-        void Harvest(Farmer farmer, Wheat wheat);
         void BuyStorage(Person person, Storage storage, Wheat wheat);
         void BuyMarket(Person person, Markets market, Wheat wheat);
     }
@@ -34,26 +32,6 @@ namespace BLL.Services
                 var wheatSold = -1 * wheat.Sold;
                 person.Gold = _is.Gather(person.Gold, wheat.Price);
                 wheat.Total = _is.Gather(wheat.Total, wheatSold);
-            }
-        }
-
-        public void HireFarmer(Person person, Farmer farmer)
-        {
-            if (farmer.Cost <= person.Gold)
-            {
-                person.Gold = _is.PayFor(person.Gold, farmer.Cost);
-                farmer.Total = _is.Gather(farmer.Total, farmer.PerClick);
-                farmer.Active = true;
-            }
-        }
-
-        public void Harvest(Farmer farmer, Wheat wheat)
-        {
-            if (farmer.Active)
-            {
-                farmer.TotalHarvest = farmer.WheatPerSecond * farmer.Total;
-                wheat.Total = _is.Gather(wheat.Total, farmer.TotalHarvest);
-                wheat.Total = _is.CanNotEarnMoreThanMax(wheat.Total, wheat.Max);
             }
         }
 

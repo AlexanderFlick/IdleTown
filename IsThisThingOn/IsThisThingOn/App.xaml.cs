@@ -36,6 +36,8 @@ namespace IsThisThingOn
             services.AddSingleton<IWheatService, WheatService>();
             services.AddSingleton<ITimerService, TimerService>();
             services.AddSingleton<IStoneService, StoneService>();
+            services.AddSingleton<IFarmerService, FarmerService>();
+            services.AddSingleton<ITownsPeopleService, TownsPeopleService>();
         }
     }
 }

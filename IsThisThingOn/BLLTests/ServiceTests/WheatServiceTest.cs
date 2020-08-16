@@ -78,45 +78,6 @@ namespace BLLTests.ServiceTests
         }
 
         [Test]
-        public void IfYouHireAFarmer_YouActivateHarvesting()
-        {
-            var person = GenerateTestPerson();
-            var wheat = GenerateTestWheat();
-            var farmer = GenerateTestFarmer();
-
-            _sut.HireFarmer(person, farmer);
-            var expected = true;
-            var actual = farmer.Active;
-            Assert.AreEqual(expected, actual);
-        }
-
-        [Test]
-        public void IfYouHireAFarmer_YouLoseGold()
-        {
-            var person = GenerateTestPerson();
-            var wheat = GenerateTestWheat();
-            var farmer = GenerateTestFarmer();
-
-            _sut.HireFarmer(person, farmer);
-            var expected = 1;
-            var actual = person.Gold;
-            Assert.AreEqual(expected, actual);
-        }
-
-        [Test]
-        public void IfYouHireAFarmer_YouCantEarnMoreThanMaxWheat()
-        {
-            var person = GenerateTestPerson();
-            var wheat = GenerateTestWheat();
-            var farmer = GenerateTestFarmer();
-
-            _sut.HireFarmer(person, farmer);
-            var expected = 10;
-            var actual = wheat.Max;
-            Assert.AreEqual(expected, actual);
-        }
-
-        [Test]
         public void BuyStorageIfEnoughGold()
         {
             var person = GenerateTestPerson();

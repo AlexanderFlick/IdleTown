@@ -6,5 +6,6 @@ namespace BLL.Models
 {
     public class Stone : BasicResource
     {
+        public new int Price { get; set; } = 7;
     }
 }
