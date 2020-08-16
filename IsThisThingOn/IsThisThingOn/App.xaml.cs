@@ -1,4 +1,5 @@
 ﻿using BLL.Services;
+using BLL.Services.WorkerServices;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -37,6 +38,8 @@ namespace IsThisThingOn
             services.AddSingleton<ITimerService, TimerService>();
             services.AddSingleton<IStoneService, StoneService>();
             services.AddSingleton<IFarmerService, FarmerService>();
+            services.AddSingleton<IMinerService, MinerService>();
+            services.AddSingleton<IMerchantService, MerchantService>();
             services.AddSingleton<ITownsPeopleService, TownsPeopleService>();
         }
     }
