@@ -122,7 +122,6 @@ namespace BLLTests
             {
                 Total = 5,
                 Max = 10,
-                Earn = false
             };
         }
 

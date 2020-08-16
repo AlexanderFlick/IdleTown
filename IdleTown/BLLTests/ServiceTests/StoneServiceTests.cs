@@ -35,8 +35,6 @@ namespace BLLTests.ServiceTests
                 Total = 1,
                 Max = 5,
                 PerClick = 1,
-                Earn = false,
-                Sold = 9,
             };
         }
     }

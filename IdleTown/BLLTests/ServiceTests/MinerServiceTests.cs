@@ -23,9 +23,10 @@ namespace BLLTests.ServiceTests
         {
             var person = GenerateTestPerson();
             var miner = GenerateTestMiner();
+            var wheat = GenerateTestWheat();
             miner.Cost = 1;
 
-            _sut.Hire(person, miner);
+            _sut.Hire(person, miner, wheat);
             var expected = true;
             var actual = miner.Active;
             Assert.AreEqual(expected, actual);
@@ -36,12 +37,26 @@ namespace BLLTests.ServiceTests
         {
             var person = GenerateTestPerson();
             var miner = GenerateTestMiner();
+            var wheat = GenerateTestWheat();
             person.Gold = 10;
             miner.Cost = 5;
 
-            _sut.Hire(person, miner);
+            _sut.Hire(person, miner, wheat);
             var expected = 5;
             var actual = person.Gold;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void IfYouHireAFarmer_YouLoseWheat()
+        {
+            var person = GenerateTestPerson();
+            var miner = GenerateTestMiner();
+            var wheat = GenerateTestWheat();
+
+            _sut.Hire(person, miner, wheat);
+            var expected = 45;
+            var actual = wheat.Total;
             Assert.AreEqual(expected, actual);
         }
 
@@ -53,6 +68,7 @@ namespace BLLTests.ServiceTests
                 Cost = 10,
                 PerClick = 2,
                 HarvestRate = 2,
+                WheatCost = 5,
             };
         }
 
@@ -61,6 +77,15 @@ namespace BLLTests.ServiceTests
             return new Person
             {
                 Gold = 2,
+            };
+        }
+        private Wheat GenerateTestWheat()
+        {
+            return new Wheat
+            {
+                Total = 50,
+                Max = 100,
+                PerClick = 1,
             };
         }
 

@@ -7,7 +7,7 @@ namespace BLL.Services.WorkerServices
 {
     public interface IMinerService
     {
-        void Hire(Person person, Miner miner);
+        void Hire(Person person, Miner miner, Wheat wheat);
         void Harvest(Miner mienr, Stone stone);
     }
     public class MinerService : IMinerService
@@ -20,10 +20,14 @@ namespace BLL.Services.WorkerServices
             _ts = peopleService;
         }
 
-        public void Hire(Person person, Miner miner)
+        public void Hire(Person person, Miner miner, Wheat wheat)
         {
-            miner.Active = _ts.Hire(person.Gold, miner.Cost);
-            person.Gold = _ts.PayForHire(person.Gold, miner.Cost);
+            if(wheat.Total >= miner.WheatCost)
+            {
+                miner.Active = _ts.Hire(person.Gold, miner.Cost);
+                person.Gold = _ts.PayForHire(person.Gold, miner.Cost);
+                wheat.Total = _is.PayFor(wheat.Total, miner.WheatCost);
+            }
         }
 
         public void Harvest(Miner miner, Stone stone)

@@ -67,6 +67,11 @@ namespace IsThisThingOn
             wheatMarketPrices.Text = "Wheat Price: " + merchants.WheatPrice;
         }
 
+        private void UpdateTownspeopleText()
+        {
+            merchantWheatCost.Text = "Wheat to Hire Merchant: " + merchants.WheatPrice;
+        }
+
         #region Townspeople
 
         private void HireMerchant(object sender, RoutedEventArgs e)
@@ -83,7 +88,7 @@ namespace IsThisThingOn
 
         private void HireMiner(object sender, RoutedEventArgs e)
         {
-            miner.Hire(person, miners);
+            miner.Hire(person, miners, wheats);
             UpdateStoneText();
         }
 
