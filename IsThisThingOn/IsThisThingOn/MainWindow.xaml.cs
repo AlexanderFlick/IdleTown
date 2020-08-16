@@ -18,21 +18,23 @@ namespace IsThisThingOn
         private Stone stones = new Stone();
         private Miner miners = new Miner();
         private Warehouse warehouse = new Warehouse();
-        private Merchant merchant = new Merchant();
+        private Merchant merchants = new Merchant();
 
         private readonly IWheatService wheat;
         private readonly ITimerService timer;
         private readonly IStoneService stone;
         private readonly IFarmerService farmer;
         private readonly IMinerService miner;
+        private readonly IMerchantService merchant;
 
-        public MainWindow(IWheatService wheat, ITimerService timer, IStoneService stone, IFarmerService farmer, IMinerService miner)
+        public MainWindow(IWheatService wheat, ITimerService timer, IStoneService stone, IFarmerService farmer, IMinerService miner, IMerchantService merchant)
         {
             this.wheat = wheat;
             this.timer = timer;
             this.stone = stone;
             this.farmer = farmer;
             this.miner = miner;
+            this.merchant = merchant;
             InitializeComponent();
         }
 
@@ -47,7 +49,7 @@ namespace IsThisThingOn
         private void HarvestTicker(object sender, EventArgs e)
         {
             farmer.Harvest(farmers, wheats);
-            stone.Harvest(miners, stones);
+            miner.Harvest(miners, stones);
             UpdateWheatText();
             UpdateStoneText();
         }
@@ -60,7 +62,7 @@ namespace IsThisThingOn
 
         private void SellWheat(object sender, RoutedEventArgs e)
         {
-            wheat.Sell(person, wheats);
+            //wheat.Sell(person, wheats);
             UpdateWheatText();
         }
 
@@ -78,7 +80,7 @@ namespace IsThisThingOn
 
         private void BuyWheatMarket(object sender, RoutedEventArgs e)
         {
-            wheat.BuyMarket(person, market, wheats);
+            //Need to update merchant with UI
             UpdateWheatText();
         }
 
@@ -102,13 +104,13 @@ namespace IsThisThingOn
 
         private void SellStone(object sender, RoutedEventArgs e)
         {
-            stone.Sell(person, stones);
+            //stone.Sell(person, stones);
             UpdateStoneText();
         }
 
         private void HireMiner(object sender, RoutedEventArgs e)
         {
-            stone.HireMiner(person, miners);
+            //
             UpdateStoneText();
         }
 
@@ -127,13 +129,13 @@ namespace IsThisThingOn
             minerCost.Text = "Gold To Hire Miner: " + miners.Cost;
             warehouseCost.Text = "Warehouse Gold Cost: " + market.Cost;
             warehouseTotal.Text = "Total Warehouses: " + market.Total;
-            warehouseIncrease.Text = "+" + stones.Price + " Max Wheat";
+            //warehouseIncrease.Text = "+" + stones.Price + " Max Wheat";
         }
 
         private void UpdateMarketText()
         {
-            stoneMarketPrices.Text = "Stone Price: " + stones.Price;
-            wheatMarketPrices.Text = "Wheat Price: " + wheats.Price;
+            stoneMarketPrices.Text = "Stone Price: " + merchants.StonePrice;
+            wheatMarketPrices.Text = "Wheat Price: " + merchants.WheatPrice;
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using BLL.Services;
+﻿using BLL.Models;
+using BLL.Models.Market;
+using BLL.Services;
 using BLL.Services.WorkerServices;
 using NSubstitute;
 using NUnit.Framework;
@@ -17,15 +19,50 @@ namespace BLLTests.ServiceTests
         {
             ItemService itemService = Substitute.For<ItemService>();
             TownsPeopleService townService = Substitute.For<TownsPeopleService>(itemService);
-            _sut = new MerchantService(townService);
+            _sut = new MerchantService(itemService, townService);
         }
 
         [Test]
-        public void WhenYouGatherStone_IncreaseStoneTotal()
+        public void IfYouHaveEnoughGold_YouCanHireMerchant()
         {
-            var expected = 2;
-            var actual = 2;
+            var merchant = GenerateTestMerchant();
+            var person = GenerateTestPerson();
+            person.Gold = 12;
+            _sut.Hire(person, merchant);
+            var expected = true;
+            var actual = merchant.Active;
             Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void IfYouHireMerchant_YouLoseGoldToPayForThem()
+        {
+            var merchant = GenerateTestMerchant();
+            var person = GenerateTestPerson();
+            person.Gold = 12;
+            _sut.Hire(person, merchant);
+            var expected = 2;
+            var actual = person.Gold;
+            Assert.AreEqual(expected, actual);
+        }
+
+        private Merchant GenerateTestMerchant()
+        {
+            return new Merchant
+            {
+                Cost = 10,
+                Active = false,
+                WheatPrice = 2,
+                StonePrice = 7,
+            };
+        }
+
+        private Person GenerateTestPerson()
+        {
+            return new Person
+            {
+                Gold = 2,
+            };
         }
     }
 }

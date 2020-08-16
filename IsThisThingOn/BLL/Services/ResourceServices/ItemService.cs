@@ -6,6 +6,7 @@
         int CanNotEarnMoreThanMax(int total, int max);
         int PayFor(int total, int cost);
         int IncreasePriceOnPurchase(int costOfIncrease, int price);
+        int Sell(int total, int amountSold);
     }
     public class ItemService : IItemService
     {
@@ -37,6 +38,15 @@
         {
             price *= costOfIncrease;
             return price;
+        }
+
+        public int Sell(int total, int amountSold)
+        {
+            if(total >= amountSold)
+            {
+                total -= amountSold;
+            }
+            return total;
         }
     }
 }

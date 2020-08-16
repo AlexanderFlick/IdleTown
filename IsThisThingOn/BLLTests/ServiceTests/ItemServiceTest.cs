@@ -1,7 +1,9 @@
 using BLL.Models;
+using BLL.Models.Market;
 using BLL.Services;
 using NSubstitute;
 using NUnit.Framework;
+using System;
 
 namespace BLLTests
 {
@@ -32,17 +34,6 @@ namespace BLLTests
             var max = 5;
             var expected = 5;
             var actual = _sut.CanNotEarnMoreThanMax(total, max);
-            Assert.AreEqual(expected, actual);
-        }
-
-        [Test]
-        public void WhenYouGainGold_YouEarnBasedOnItemPrice()
-        {
-            var person = GenerateTestPerson();
-            var wheat = GenerateTestWheat();
-            wheat.Earn = true;
-            var expected = 4;
-            var actual = _sut.Gather(person.Gold, wheat.Price);
             Assert.AreEqual(expected, actual);
         }
 
@@ -82,6 +73,41 @@ namespace BLLTests
             Assert.AreEqual(expected, actual);
         }
 
+        [Test]
+        public void IfYouSellAnItem_YouLoseHoweverManyYouSold()
+        {
+            var merchant = GenerateTestMerchant();
+            var wheat = GenerateTestWheat();
+            merchant.WheatQuantitySold = 2;
+            _sut.Sell(wheat.Total, merchant.WheatQuantitySold);
+
+            var expected = 3;
+            var actual = wheat.Total;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void YouCanNotSellMoreThanYouHave()
+        {
+            var merchant = GenerateTestMerchant();
+            var wheat = GenerateTestWheat();
+            merchant.WheatQuantitySold = 188;
+            _sut.Sell(wheat.Total, merchant.WheatQuantitySold);
+
+            var expected = 5;
+            var actual = wheat.Total;
+            Assert.AreEqual(expected, actual);
+        }
+
+        private Merchant GenerateTestMerchant()
+        {
+            return new Merchant
+            {
+                StoneQuantitySold = 2,
+                StonePrice = 7,
+            };
+        }
+
         private Person GenerateTestPerson()
         {
             return new Person
@@ -96,7 +122,6 @@ namespace BLLTests
             {
                 Total = 5,
                 Max = 10,
-                Price = 2,
                 Earn = false
             };
         }

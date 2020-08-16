@@ -36,7 +36,6 @@ namespace BLLTests.ServiceTests
                 Max = 5,
                 PerClick = 1,
                 Earn = false,
-                Price = 5,
                 Sold = 9,
             };
         }
