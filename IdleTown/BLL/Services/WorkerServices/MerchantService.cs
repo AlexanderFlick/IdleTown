@@ -5,7 +5,7 @@ namespace BLL.Services.WorkerServices
 {
     public interface IMerchantService
     {
-        void Hire(Person person, Merchant merchant);
+        void Hire(Merchant merchant, Wheat wheat);
 
         void SellWheat(Person person, Merchant merchant, Wheat wheat);
 
@@ -23,10 +23,10 @@ namespace BLL.Services.WorkerServices
             _ts = townsPeopleService;
         }
 
-        public void Hire(Person person, Merchant merchant)
+        public void Hire(Merchant merchant, Wheat wheat)
         {
-            merchant.Active = _ts.Hire(person.Gold, merchant.Cost);
-            person.Gold = _ts.PayForHire(person.Gold, merchant.Cost);
+            merchant.Active = _ts.Hire(wheat.Total, merchant.Cost);
+            wheat.Total = _ts.PayForHire(wheat.Total, merchant.WheatPrice);
         }
 
         public void SellWheat(Person person, Merchant merchant, Wheat wheat)

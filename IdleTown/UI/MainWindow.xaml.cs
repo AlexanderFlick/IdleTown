@@ -26,6 +26,8 @@ namespace IsThisThingOn
         private readonly IFarmerService farmer;
         private readonly IMinerService miner;
         private readonly IMerchantService merchant;
+        private readonly string filler = "";
+        private readonly string purchased = "Purchased!";
 
         public MainWindow(IWheatService wheat, ITimerService timer, IStoneService stone, IFarmerService farmer, IMinerService miner, IMerchantService merchant)
         {
@@ -53,6 +55,7 @@ namespace IsThisThingOn
             UpdateWheatText();
             UpdateStoneText();
             UpdateMarketText();
+            UpdateTownsPeopleText();
         }
 
         private void BuyWarehouse(object sender, RoutedEventArgs e)
@@ -67,23 +70,63 @@ namespace IsThisThingOn
             wheatMarketPrices.Text = "Wheat Price: " + merchants.WheatPrice;
         }
 
-        private void UpdateTownspeopleText()
+        private void UpdateTownsPeopleText()
         {
+            farmerCost.Text = "Gold to Hire Farmer: " + farmers.Cost;
+            minerCost.Text = "Gold to Hire Miner: " + miners.Cost;
+            minerWheatCost.Text = "Wheat to Hire Miner: " + miners.WheatCost;
             merchantWheatCost.Text = "Wheat to Hire Merchant: " + merchants.WheatPrice;
+            if (merchants.Active)
+            {
+                merchantWheatCost.Text = filler;
+                MerchantPurchased.Text = purchased;
+                HireMerchantButton.IsEnabled = false;
+            }
+            if (farmers.Active)
+            {
+                farmerCost.Text = filler;
+                FarmerPurchased.Text = purchased;
+                HireFarmerButton.IsEnabled = false;
+            }
         }
 
         #region Townspeople
 
         private void HireMerchant(object sender, RoutedEventArgs e)
         {
-            merchant.Hire(person, merchants);
+            merchant.Hire(merchants, wheats);
+            EnableMerchantTab();
             UpdateWheatText();
+        }
+
+        private void EnableMerchantTab()
+        {
+            if (merchants.Active)
+            {
+                HireFarmerButton.IsEnabled = true;
+                MarketTab.IsEnabled = true;
+                farmerCost.IsEnabled = true;
+                MerchantPurchased.IsEnabled = true;
+                merchantWheatCost.Text = filler;
+                HireMerchantButton.IsEnabled = false;
+            }
         }
 
         private void HireFarmer(object sender, RoutedEventArgs e)
         {
             farmer.Hire(person, farmers);
+            EnableMinerTab();
             UpdateWheatText();
+        }
+
+        private void EnableMinerTab()
+        {
+            if (farmers.Active)
+            {
+                HireMinerButton.IsEnabled = true;
+                minerCost.IsEnabled = true;
+                minerWheatCost.IsEnabled = true;
+            }
         }
 
         private void HireMiner(object sender, RoutedEventArgs e)
