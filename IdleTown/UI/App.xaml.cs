@@ -34,6 +34,7 @@ namespace IsThisThingOn
             services.AddSingleton<IStoneService, StoneService>();
             services.AddSingleton<IFarmerService, FarmerService>();
             services.AddSingleton<IMinerService, MinerService>();
+            services.AddSingleton<IBlackSmithService, BlacksmithService>();
             services.AddSingleton<IMerchantService, MerchantService>();
             services.AddSingleton<ITownsPeopleService, TownsPeopleService>();
         }

@@ -66,8 +66,8 @@ namespace IsThisThingOn
 
         private void UpdateMarketText()
         {
-            stoneMarketPrices.Text = "Stone Price: " + merchants.StonePrice;
-            wheatMarketPrices.Text = "Wheat Price: " + merchants.WheatPrice;
+            stoneMarketPrices.Text = "Stone Price: $" + merchants.StonePrice;
+            wheatMarketPrices.Text = "Wheat Price: $" + merchants.WheatPrice;
         }
 
         private void UpdateTownsPeopleText()
