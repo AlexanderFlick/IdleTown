@@ -22,6 +22,7 @@ namespace BLL.Services.WorkerServices
         public void Hire()
         {
             //stone, wheat and gold
+
         }
 
     }
