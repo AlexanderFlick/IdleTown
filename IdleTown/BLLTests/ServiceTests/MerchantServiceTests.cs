@@ -20,26 +20,16 @@ namespace BLLTests.ServiceTests
         }
 
         [Test]
-        public void IfYouHaveEnoughGold_YouCanHireMerchant()
+        public void IfYouHireMerchant_YouLoseWheatToPayForThem()
         {
             var merchant = GenerateTestMerchant();
-            var person = GenerateTestPerson();
-            person.Gold = 12;
-            _sut.Hire(person, merchant);
-            var expected = true;
-            var actual = merchant.Active;
-            Assert.AreEqual(expected, actual);
-        }
+            var wheat = GenerateTestWheat();
+            merchant.Cost = 2;
+            wheat.Total = 4;
 
-        [Test]
-        public void IfYouHireMerchant_YouLoseGoldToPayForThem()
-        {
-            var merchant = GenerateTestMerchant();
-            var person = GenerateTestPerson();
-            person.Gold = 12;
-            _sut.Hire(person, merchant);
+            _sut.Hire(merchant, wheat);
             var expected = 2;
-            var actual = person.Gold;
+            var actual = wheat.Total;
             Assert.AreEqual(expected, actual);
         }
 
@@ -54,11 +44,13 @@ namespace BLLTests.ServiceTests
             };
         }
 
-        private Person GenerateTestPerson()
+        private Wheat GenerateTestWheat()
         {
-            return new Person
+            return new Wheat
             {
-                Gold = 2,
+                Total = 5,
+                Max = 10,
+                PerClick = 1,
             };
         }
     }
