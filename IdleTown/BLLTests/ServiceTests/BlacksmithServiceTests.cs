@@ -36,6 +36,24 @@ namespace BLLTests.ServiceTests
             Assert.AreEqual(expected, actual);
         }
 
+        [Test]
+        public void IfActivateBlacksmith_YouPayResources()
+        {
+            var person = GenerateTestPerson();
+            var blacksmith = GenerateTestBlacksmith();
+            var wheat = GenerateTestWheat();
+            var stone = GenerateTestStone();
+
+            _sut.Hire(person, blacksmith, wheat, stone);
+            var expected = 46;
+            var actualGold = person.Gold;
+            var actualWheat = wheat.Total;
+            var actualStone = stone.Total;
+            Assert.AreEqual(expected, actualGold);
+            Assert.AreEqual(expected, actualWheat);
+            Assert.AreEqual(expected, actualStone);
+        }
+
         private Blacksmith GenerateTestBlacksmith()
         {
             return new Blacksmith
@@ -51,7 +69,7 @@ namespace BLLTests.ServiceTests
         {
             return new Person
             {
-                Gold = 12,
+                Gold = 56,
             };
         }
 
