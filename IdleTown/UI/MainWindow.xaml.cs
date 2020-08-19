@@ -135,6 +135,11 @@ namespace IsThisThingOn
             UpdateStoneText();
         }
 
+        private void HireBlacksmith(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
         #endregion Townspeople
 
         #region MerchantFeatures
