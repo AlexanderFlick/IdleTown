@@ -19,7 +19,7 @@ namespace BLLTests.ServiceTests
         }
 
         [Test]
-        public void IfYouHireAFarmer_YouActivateHarvesting()
+        public void IfYouHireAMiner_YouActivateHarvesting()
         {
             var person = GenerateTestPerson();
             var miner = GenerateTestMiner();
