@@ -1,4 +1,5 @@
 ﻿using BLL.Models;
+using BLL.Models.Resources;
 using BLL.Models.Townspeople;
 using System;
 using System.Collections.Generic;
@@ -8,8 +9,8 @@ namespace BLL.Services.WorkerServices
 {
     public interface IBlackSmithService
     {
-        void Hire(Person person, Blacksmith blacksmith, Wheat wheat, Stone stone);
-        void UpgradeSickle(Person person, Blacksmith blacksmith, Stone stone, Farmer farmer);
+        void Hire(Person person, Blacksmith blacksmith, Wheat wheat, Stone stone, Sickle sickle);
+        void UpgradeSickle(Person person, Sickle sickle, Stone stone, Farmer farmer);
     }
     public class BlacksmithService : IBlackSmithService
     {
@@ -22,12 +23,13 @@ namespace BLL.Services.WorkerServices
             _ts = townsPeopleService;
         }
 
-        public void Hire(Person person, Blacksmith blacksmith, Wheat wheat, Stone stone)
+        public void Hire(Person person, Blacksmith blacksmith, Wheat wheat, Stone stone, Sickle sickle)
         {
             blacksmith.Active = CanAffordBlacksmith(person, blacksmith, wheat, stone);
             if (blacksmith.Active)
             {
                 PayForBlacksmith(person, blacksmith, wheat, stone);
+                sickle.Active = true;
             }
         }
 
@@ -56,44 +58,39 @@ namespace BLL.Services.WorkerServices
             stone.Total = _is.PayFor(stone.Total, blacksmith.StoneCost);
         }
 
-        public void UpgradeSickle(Person person, Blacksmith blacksmith, Stone stone, Farmer farmer)
+        public void UpgradeSickle(Person person, Sickle sickle, Stone stone, Farmer farmer)
         {
-            blacksmith.SickleActive = PayForSickle(person, blacksmith, stone);
-            if (blacksmith.SickleActive)
+            sickle.Active = PayForSickle(person, sickle, stone);
+            if (sickle.Active)
             {
-                IncreaseSickleCost(blacksmith);
-                IncreaseSickleQuality(blacksmith);
-                IncreaseFarmerHarvestPerSecond(blacksmith, farmer);
+                IncreaseSickleCost(sickle);
+                IncreaseSickleQuality(sickle);
             }
         }
 
-        public bool PayForSickle(Person person, Blacksmith blacksmith, Stone stone)
+        public bool PayForSickle(Person person, Sickle sickle, Stone stone)
         {
             var active = false;
-            if (person.Gold >= blacksmith.SickleGoldCost && stone.Total >= blacksmith.SickleStoneCost)
+            if (person.Gold >= sickle.GoldCost && stone.Total >= sickle.StoneCost)
             {
-                person.Gold = _is.PayFor(person.Gold, blacksmith.SickleGoldCost);
-                stone.Total = _is.PayFor(stone.Total, blacksmith.SickleStoneCost);
+                person.Gold = _is.PayFor(person.Gold, sickle.GoldCost);
+                stone.Total = _is.PayFor(stone.Total, sickle.StoneCost);
                 active = true;
             }
             return active;
         }
 
-        public void IncreaseSickleCost(Blacksmith blacksmith)
+        public void IncreaseSickleCost(Sickle sickle)
         {
-            blacksmith.SickleStoneCost *= 2;
-            blacksmith.SickleGoldCost *= 5;
+            sickle.StoneCost *= 2;
+            sickle.GoldCost *= 5;
         }
 
-        public void IncreaseSickleQuality(Blacksmith blacksmith)
+        public void IncreaseSickleQuality(Sickle sickle)
         {
-            blacksmith.SickleUpgradeStatus += 1;
-            blacksmith.SickleQuality = blacksmith.Quality[blacksmith.SickleUpgradeStatus];
-        }
-
-        public void IncreaseFarmerHarvestPerSecond(Blacksmith blacksmith, Farmer farmer)
-        {
-            farmer.HarvestRate += blacksmith.SickleHarvestIncrease;
+            sickle.UpgradeStatus++;
+            sickle.HarvestIncrease++;
+            sickle.Quality = sickle.QualityTypes[sickle.UpgradeStatus];
         }
 
     }

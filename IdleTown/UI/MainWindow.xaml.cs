@@ -82,9 +82,9 @@ namespace IsThisThingOn
             BlacksmithGoldCost.Text = "Gold to Hire Blacksmith: " + blacksmiths.Cost;
             BlacksmithStoneCost.Text = "Stone to Hire Blacksmith: " + blacksmiths.StoneCost;
             BlacksmithWheatCost.Text = "Wheat to Hire Blacksmith: " + blacksmiths.WheatCost;
-            sickleGoldCost.Text = "Gold to Upgrade Sickle: " + blacksmiths.SickleGoldCost;
-            sickleStoneCost.Text = "Stone to Upgrade Sickle: " + blacksmiths.SickleStoneCost;
-            sickleQuality.Text = "Sickle Quality: " + blacksmiths.SickleQuality;
+            sickleGoldCost.Text = "Gold to Upgrade Sickle: " + sickles.GoldCost;
+            sickleStoneCost.Text = "Stone to Upgrade Sickle: " + sickles.StoneCost;
+            sickleQuality.Text = "Sickle Quality: " + sickles.Quality;
             farmerGain.Text = "+" + farmers.TotalHarvest + " Wheat/Sec";
             minerGain.Text = "+" + miners.TotalHarvest + " Stone/Sec";
             if (merchants.Active)
@@ -149,7 +149,7 @@ namespace IsThisThingOn
 
         private void HireBlacksmith(object sender, RoutedEventArgs e)
         {
-            blacksmith.Hire(person, blacksmiths, wheats, stones);
+            blacksmith.Hire(person, blacksmiths, wheats, stones, sickles);
             UpdateWheatText();
             UpdateStoneText();
             UpdateTownsPeopleText();
@@ -230,7 +230,7 @@ namespace IsThisThingOn
 
         private void UpgradeSickle(object sender, RoutedEventArgs e)
         {
-            blacksmith.UpgradeSickle(person, blacksmiths, stones, farmers);
+            blacksmith.UpgradeSickle(person, sickles, stones, farmers);
             UpdateWheatText();
             UpdateStoneText();
             UpdateTownsPeopleText();

@@ -35,8 +35,8 @@ namespace BLL.Services.WorkerServices
         {
             if (miner.Active)
             {
-                miner.HarvestRate *= pickaxe.HarvestIncrease;
-                stone.Total = _is.Gather(stone.Total, miner.HarvestRate);
+                miner.TotalHarvest = _ts.UpgradeItem(miner.HarvestRate, pickaxe.HarvestIncrease);
+                stone.Total = _is.Gather(stone.Total, miner.TotalHarvest);
                 stone.Total = _is.CanNotEarnMoreThanMax(stone.Total, stone.Max);
             }
         }
