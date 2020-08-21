@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BLL.Models.Resources
 {
-    public class Sickle : BasicItem
+    public class Pickaxe : BasicItem
     {
     }
 }

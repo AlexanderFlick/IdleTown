@@ -1,5 +1,6 @@
 ﻿using BLL.Models;
 using BLL.Models.Market;
+using BLL.Models.Resources;
 using BLL.Models.Townspeople;
 using BLL.Services;
 using BLL.Services.WorkerServices;
@@ -13,6 +14,8 @@ namespace IsThisThingOn
     {
         private Person person = new Person();
         private Wheat wheats = new Wheat();
+        private Pickaxe pickaxes = new Pickaxe();
+        private Sickle sickles = new Sickle();
         private Markets market = new Markets();
         private Farmer farmers = new Farmer();
         private Storage storage = new Storage();
@@ -54,8 +57,8 @@ namespace IsThisThingOn
 
         private void HarvestTicker(object sender, EventArgs e)
         {
-            farmer.Harvest(farmers, wheats, blacksmiths);
-            miner.Harvest(miners, stones);
+            farmer.Harvest(farmers, wheats, sickles);
+            miner.Harvest(miners, stones, pickaxes);
             UpdateWheatText();
             UpdateStoneText();
             UpdateMarketText();
@@ -82,8 +85,8 @@ namespace IsThisThingOn
             sickleGoldCost.Text = "Gold to Upgrade Sickle: " + blacksmiths.SickleGoldCost;
             sickleStoneCost.Text = "Stone to Upgrade Sickle: " + blacksmiths.SickleStoneCost;
             sickleQuality.Text = "Sickle Quality: " + blacksmiths.SickleQuality;
-            farmerGain.Text = "+" + farmers.HarvestRate + " Wheat/Sec";
-            minerGain.Text = "+" + miners.HarvestRate + " Stone/Sec";
+            farmerGain.Text = "+" + farmers.TotalHarvest + " Wheat/Sec";
+            minerGain.Text = "+" + miners.TotalHarvest + " Stone/Sec";
             if (merchants.Active)
             {
                 merchantWheatCost.Text = filler;

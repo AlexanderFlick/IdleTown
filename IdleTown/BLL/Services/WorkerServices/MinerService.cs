@@ -1,4 +1,5 @@
 ﻿using BLL.Models;
+using BLL.Models.Resources;
 
 namespace BLL.Services.WorkerServices
 {
@@ -6,7 +7,7 @@ namespace BLL.Services.WorkerServices
     {
         void Hire(Person person, Miner miner, Wheat wheat);
 
-        void Harvest(Miner mienr, Stone stone);
+        void Harvest(Miner mienr, Stone stone, Pickaxe pickaxe);
     }
 
     public class MinerService : IMinerService
@@ -30,11 +31,12 @@ namespace BLL.Services.WorkerServices
             }
         }
 
-        public void Harvest(Miner miner, Stone stone)
+        public void Harvest(Miner miner, Stone stone, Pickaxe pickaxe)
         {
             if (miner.Active)
             {
-                stone.Total = _is.Gather(stone.Total, miner.StonePerSecond);
+                miner.HarvestRate *= pickaxe.HarvestIncrease;
+                stone.Total = _is.Gather(stone.Total, miner.HarvestRate);
                 stone.Total = _is.CanNotEarnMoreThanMax(stone.Total, stone.Max);
             }
         }

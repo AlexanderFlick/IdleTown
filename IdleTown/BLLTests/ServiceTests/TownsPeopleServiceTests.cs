@@ -1,4 +1,5 @@
 ﻿using BLL.Models;
+using BLL.Models.Resources;
 using BLL.Services;
 using NSubstitute;
 using NUnit.Framework;
@@ -51,6 +52,16 @@ namespace BLLTests.ServiceTests
             Assert.AreEqual(expected, actual);
         }
 
+        [Test]
+        public void HarvestAbilityIsIncreasedWhenItemIsUpgraded()
+        {
+            var miner = GenerateTestMiner();
+            var pickaxe = GenerateTestPickaxe();
+            var expected = 2;
+            var actual = _sut.UpgradeItem(miner.HarvestRate, pickaxe.HarvestIncrease);
+            Assert.AreEqual(expected, actual);
+        }
+
         private Farmer GenerateTestFarmer()
         {
             return new Farmer
@@ -62,11 +73,27 @@ namespace BLLTests.ServiceTests
             };
         }
 
+        private Miner GenerateTestMiner()
+        {
+            return new Miner
+            {
+                HarvestRate = 1,
+            };
+        }
+
         private Person GenerateTestPerson()
         {
             return new Person
             {
                 Gold = 10,
+            };
+        }
+
+        private Pickaxe GenerateTestPickaxe()
+        {
+            return new Pickaxe
+            {
+                HarvestIncrease = 2,
             };
         }
     }

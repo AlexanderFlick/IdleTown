@@ -5,6 +5,7 @@
         bool Hire(int gold, int hiringCost);
 
         int PayForHire(int gold, int hiringCost);
+        int UpgradeItem(int skill, int mod);
     }
 
     public class TownsPeopleService : ITownsPeopleService
@@ -30,6 +31,12 @@
         {
             gold = _is.PayFor(gold, hiringCost);
             return gold;
+        }
+
+        public int UpgradeItem(int skill, int mod)
+        {
+            skill *= mod;
+            return mod;
         }
     }
 }
