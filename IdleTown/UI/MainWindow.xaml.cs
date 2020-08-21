@@ -218,11 +218,9 @@ namespace IsThisThingOn
             goldText.Text = "Total Gold: " + person.Gold;
             stoneText.Text = "Stone: " + stones.Total + "/" + stones.Max;
             stonePerClick.Text = "Stone Per Click: " + stones.PerClick;
-            //minerGain.Text = "+" + miners.TotalHarvest + " Stone/sec";
             minerCost.Text = "Gold To Hire Miner: " + miners.Cost;
             warehouseCost.Text = "Warehouse Gold Cost: " + market.Cost;
             warehouseTotal.Text = "Total Warehouses: " + market.Total;
-            //warehouseIncrease.Text = "+" + stones.Price + " Max Wheat";
         }
 
         #endregion Stone
@@ -230,9 +228,9 @@ namespace IsThisThingOn
         private void UpgradeSickle(object sender, RoutedEventArgs e)
         {
             blacksmith.UpgradeSickle(person, blacksmiths, stones, farmers);
-            UpdateTownsPeopleText();
             UpdateWheatText();
             UpdateStoneText();
+            UpdateTownsPeopleText();
         }
     }
 }
