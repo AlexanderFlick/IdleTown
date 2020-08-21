@@ -50,7 +50,6 @@ namespace BLL.Services.WorkerServices
                 person.Gold = _is.Gather(person.Gold, merchant.StonePrice);
                 stone.Total = _is.Gather(stone.Total, quantitySold);
             }
-            stone.Total = _is.Sell(stone.Total, merchant.StoneQuantitySold);
         }
     }
 }
