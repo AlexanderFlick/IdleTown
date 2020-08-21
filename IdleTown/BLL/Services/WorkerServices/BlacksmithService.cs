@@ -9,6 +9,7 @@ namespace BLL.Services.WorkerServices
     public interface IBlackSmithService
     {
         void Hire(Person person, Blacksmith blacksmith, Wheat wheat, Stone stone);
+        void UpgradeSickle(Person person, Blacksmith blacksmith, Stone stone, Farmer farmer);
     }
     public class BlacksmithService : IBlackSmithService
     {
@@ -51,8 +52,48 @@ namespace BLL.Services.WorkerServices
         private void PayForBlacksmith(Person person, Blacksmith blacksmith, Wheat wheat, Stone stone)
         {
             person.Gold = _is.PayFor(person.Gold, blacksmith.Cost);
-            wheat.Total = _is.PayFor(wheat.Total, blacksmith.WheatCost);
+            wheat.Total = _is.PayFor(wheat.Total, blacksmith.WheatCost);    
             stone.Total = _is.PayFor(stone.Total, blacksmith.StoneCost);
+        }
+
+        public void UpgradeSickle(Person person, Blacksmith blacksmith, Stone stone, Farmer farmer)
+        {
+            blacksmith.SickleActive = PayForSickle(person, blacksmith, stone);
+            if (blacksmith.SickleActive)
+            {
+                IncreaseSickleCost(blacksmith);
+                IncreaseSickleQuality(blacksmith);
+                IncreaseFarmerHarvestPerSecond(blacksmith, farmer);
+            }
+        }
+
+        public bool PayForSickle(Person person, Blacksmith blacksmith, Stone stone)
+        {
+            var active = false;
+            if (person.Gold >= blacksmith.SickleGoldCost && stone.Total >= blacksmith.SickleStoneCost)
+            {
+                person.Gold = _is.PayFor(person.Gold, blacksmith.SickleGoldCost);
+                stone.Total = _is.PayFor(stone.Total, blacksmith.SickleStoneCost);
+                active = true;
+            }
+            return active;
+        }
+
+        public void IncreaseSickleCost(Blacksmith blacksmith)
+        {
+            blacksmith.SickleStoneCost *= 2;
+            blacksmith.SickleGoldCost *= 5;
+        }
+
+        public void IncreaseSickleQuality(Blacksmith blacksmith)
+        {
+            blacksmith.SickleUpgradeStatus += 1;
+            blacksmith.SickleQuality = blacksmith.Quality[blacksmith.SickleUpgradeStatus];
+        }
+
+        public void IncreaseFarmerHarvestPerSecond(Blacksmith blacksmith, Farmer farmer)
+        {
+            farmer.HarvestRate += blacksmith.SickleHarvestIncrease;
         }
 
     }

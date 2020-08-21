@@ -54,6 +54,12 @@ namespace BLLTests.ServiceTests
             Assert.AreEqual(expected, actualStone);
         }
 
+        [Test]
+        public void IfYouUpgradeSickle_FarmerWheatPerSecondIncreases()
+        {
+
+        }
+
         private Blacksmith GenerateTestBlacksmith()
         {
             return new Blacksmith
@@ -89,6 +95,16 @@ namespace BLLTests.ServiceTests
                 Total = 50,
                 Max = 100,
                 PerClick = 1,
+            };
+        }
+        private Farmer GenerateTestFarmer()
+        {
+            return new Farmer
+            {
+                Active = false,
+                Cost = 10,
+                PerClick = 2,
+                HarvestRate = 2,
             };
         }
     }

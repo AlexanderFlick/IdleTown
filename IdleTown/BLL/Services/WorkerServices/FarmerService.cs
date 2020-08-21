@@ -1,4 +1,5 @@
 ﻿using BLL.Models;
+using BLL.Models.Townspeople;
 
 namespace BLL.Services
 {
@@ -6,7 +7,7 @@ namespace BLL.Services
     {
         void Hire(Person person, Farmer farmer);
 
-        void Harvest(Farmer farmer, Wheat wheat);
+        void Harvest(Farmer farmer, Wheat wheat, Blacksmith blacksmith);
     }
 
     public class FarmerService : IFarmerService
@@ -23,14 +24,18 @@ namespace BLL.Services
         public void Hire(Person person, Farmer farmer)
         {
             farmer.Active = _ts.Hire(person.Gold, farmer.Cost);
-            person.Gold = _ts.PayForHire(person.Gold, farmer.Cost);
+            if (farmer.Active)
+            {
+                person.Gold = _ts.PayForHire(person.Gold, farmer.Cost);
+            }
         }
 
-        public void Harvest(Farmer farmer, Wheat wheat)
+        public void Harvest(Farmer farmer, Wheat wheat, Blacksmith blacksmith)
         {
             if (farmer.Active)
             {
-                wheat.Total = _is.Gather(wheat.Total, farmer.WheatPerSecond);
+                farmer.HarvestRate *= blacksmith.SickleHarvestIncrease;
+                wheat.Total = _is.Gather(wheat.Total, farmer.HarvestRate);
                 wheat.Total = _is.CanNotEarnMoreThanMax(wheat.Total, wheat.Max);
             }
         }

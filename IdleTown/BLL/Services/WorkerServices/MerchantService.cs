@@ -26,7 +26,10 @@ namespace BLL.Services.WorkerServices
         public void Hire(Merchant merchant, Wheat wheat)
         {
             merchant.Active = _ts.Hire(wheat.Total, merchant.Cost);
-            wheat.Total = _ts.PayForHire(wheat.Total, merchant.WheatPrice);
+            if (merchant.Active)
+            {
+                wheat.Total = _ts.PayForHire(wheat.Total, merchant.WheatPrice);
+            }
         }
 
         public void SellWheat(Person person, Merchant merchant, Wheat wheat)

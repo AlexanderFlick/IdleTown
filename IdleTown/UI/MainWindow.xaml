@@ -62,8 +62,10 @@
                     <TextBlock x:Name="BlacksmithGoldCost" Grid.Column="1" HorizontalAlignment="Left" Margin="549,70,0,0" Text="Gold to Hire Blacksmith: 10" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <Button x:Name="BlacksmithButton" Content="Hire Blacksmith" Grid.Column="1" HorizontalAlignment="Left" Margin="543,95,0,0" VerticalAlignment="Top" Width="164" Height="28" IsEnabled="False" Click="HireBlacksmith"/>
                     <TextBlock Name="SickleInfoText" Grid.Column="1" HorizontalAlignment="Left" Margin="166,142,0,0" Text="Ask Blacksmith to Upgrade Sickle to Increase Farmer Harvest Rate" TextWrapping="Wrap" VerticalAlignment="Top" Height="73" Width="132"/>
-                    <TextBlock x:Name="sickleGoldCost" HorizontalAlignment="Left" Margin="166,237,0,0" Text="Gold to Buy Sickle: 10" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"/>
-                    <Button x:Name="sickleButton" Content="Upgrade" Grid.Column="1" HorizontalAlignment="Left" Margin="166,262,0,0" VerticalAlignment="Top" Width="115" Height="27" IsEnabled="False"/>
+                    <TextBlock x:Name="sickleGoldCost" HorizontalAlignment="Left" Margin="166,272,0,0" Text="Gold to Buy Sickle: 10" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Button x:Name="sickleButton" Content="Upgrade" Grid.Column="1" HorizontalAlignment="Left" Margin="166,297,0,0" VerticalAlignment="Top" Width="115" Height="27" IsEnabled="False" Click="UpgradeSickle"/>
+                    <TextBlock x:Name="sickleStoneCost" Grid.Column="1" HorizontalAlignment="Left" Margin="150,251,0,0" Text="Stone to Upgrade Sickle: 10" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="sickleQuality" Grid.Column="1" HorizontalAlignment="Left" Margin="188,235,0,0" Text="Sickle Quality: " TextWrapping="Wrap" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem Name="MarketTab" Header="Market" Margin="80,1,-138,-2" IsEnabled="False">

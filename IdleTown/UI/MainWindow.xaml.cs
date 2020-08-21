@@ -54,7 +54,7 @@ namespace IsThisThingOn
 
         private void HarvestTicker(object sender, EventArgs e)
         {
-            farmer.Harvest(farmers, wheats);
+            farmer.Harvest(farmers, wheats, blacksmiths);
             miner.Harvest(miners, stones);
             UpdateWheatText();
             UpdateStoneText();
@@ -79,6 +79,11 @@ namespace IsThisThingOn
             BlacksmithGoldCost.Text = "Gold to Hire Blacksmith: " + blacksmiths.Cost;
             BlacksmithStoneCost.Text = "Stone to Hire Blacksmith: " + blacksmiths.StoneCost;
             BlacksmithWheatCost.Text = "Wheat to Hire Blacksmith: " + blacksmiths.WheatCost;
+            sickleGoldCost.Text = "Gold to Upgrade Sickle: " + blacksmiths.SickleGoldCost;
+            sickleStoneCost.Text = "Stone to Upgrade Sickle: " + blacksmiths.SickleStoneCost;
+            sickleQuality.Text = "Sickle Quality: " + blacksmiths.SickleQuality;
+            farmerGain.Text = "+" + farmers.HarvestRate + " Wheat/Sec";
+            minerGain.Text = "+" + miners.HarvestRate + " Stone/Sec";
             if (merchants.Active)
             {
                 merchantWheatCost.Text = filler;
@@ -176,6 +181,7 @@ namespace IsThisThingOn
         {
             wheat.Gain(wheats);
             UpdateWheatText();
+            UpdateTownsPeopleText();
         }
 
         private void BuyStorage(object sender, RoutedEventArgs e)
@@ -189,7 +195,7 @@ namespace IsThisThingOn
             goldText.Text = "Total Gold: " + person.Gold.ToString();
             wheatText.Text = "Wheat: " + wheats.Total.ToString() + "/" + wheats.Max.ToString();
             wheatPerClick.Text = "Wheat Per Click: " + wheats.PerClick;
-            farmerGain.Text = "+" + farmers.TotalHarvest + " Wheat/sec";
+            //farmerGain.Text = "+" + farmers.TotalHarvest + " Wheat/sec";
             farmerCost.Text = "Gold To Hire Farmer: " + farmers.Cost;
             storageTotal.Text = "Total Warehouses: " + storage.Total;
             storageIncrease.Text = "+" + storage.IncreaseWheatMax + " Max Wheat";
@@ -204,6 +210,7 @@ namespace IsThisThingOn
         {
             stone.Gain(stones);
             UpdateStoneText();
+            UpdateTownsPeopleText();
         }
 
         private void UpdateStoneText()
@@ -211,7 +218,7 @@ namespace IsThisThingOn
             goldText.Text = "Total Gold: " + person.Gold;
             stoneText.Text = "Stone: " + stones.Total + "/" + stones.Max;
             stonePerClick.Text = "Stone Per Click: " + stones.PerClick;
-            minerGain.Text = "+" + miners.TotalHarvest + " Stone/sec";
+            //minerGain.Text = "+" + miners.TotalHarvest + " Stone/sec";
             minerCost.Text = "Gold To Hire Miner: " + miners.Cost;
             warehouseCost.Text = "Warehouse Gold Cost: " + market.Cost;
             warehouseTotal.Text = "Total Warehouses: " + market.Total;
@@ -220,5 +227,12 @@ namespace IsThisThingOn
 
         #endregion Stone
 
+        private void UpgradeSickle(object sender, RoutedEventArgs e)
+        {
+            blacksmith.UpgradeSickle(person, blacksmiths, stones, farmers);
+            UpdateTownsPeopleText();
+            UpdateWheatText();
+            UpdateStoneText();
+        }
     }
 }
