@@ -33,7 +33,7 @@ namespace BLLTests.ServiceTests
         }
 
         [Test]
-        public void IfYouHireAFarmer_YouLoseGold()
+        public void IfYouHireAMiner_YouLoseGold()
         {
             var person = GenerateTestPerson();
             var miner = GenerateTestMiner();
@@ -48,11 +48,12 @@ namespace BLLTests.ServiceTests
         }
 
         [Test]
-        public void IfYouHireAFarmer_YouLoseWheat()
+        public void IfYouHireAMiner_YouLoseWheat()
         {
             var person = GenerateTestPerson();
             var miner = GenerateTestMiner();
             var wheat = GenerateTestWheat();
+            person.Gold = 11;
 
             _sut.Hire(person, miner, wheat);
             var expected = 45;

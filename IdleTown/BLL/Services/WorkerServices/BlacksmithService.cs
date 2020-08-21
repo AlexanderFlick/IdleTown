@@ -35,7 +35,7 @@ namespace BLL.Services.WorkerServices
             var isActive = blacksmith.Active;
             if (!isActive)
             {
-                isActive = _ts.Hire(person.Gold, blacksmith.WheatCost);
+                isActive = _ts.Hire(person.Gold, blacksmith.Cost);
             }
             if (isActive)
             {
