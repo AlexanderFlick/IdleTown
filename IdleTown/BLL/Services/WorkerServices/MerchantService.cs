@@ -44,7 +44,7 @@ namespace BLL.Services.WorkerServices
             if (stone.Total > 0)
             {
                 var quantitySold = merchant.StoneQuantitySold * -1;
-                person.Gold = _is.Gather(person.Gold, merchant.WheatPrice);
+                person.Gold = _is.Gather(person.Gold, merchant.StonePrice);
                 stone.Total = _is.Gather(stone.Total, quantitySold);
             }
             stone.Total = _is.Sell(stone.Total, merchant.StoneQuantitySold);

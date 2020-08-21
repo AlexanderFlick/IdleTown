@@ -22,7 +22,7 @@ namespace BLL.Services.WorkerServices
 
         public void Hire(Person person, Miner miner, Wheat wheat)
         {
-            if (wheat.Total >= miner.WheatCost)
+            if (wheat.Total >= miner.WheatCost && person.Gold >= miner.Cost)
             {
                 miner.Active = _ts.Hire(person.Gold, miner.Cost);
                 person.Gold = _ts.PayForHire(person.Gold, miner.Cost);
