@@ -5,6 +5,7 @@
         bool Hire(int gold, int hiringCost);
 
         int PayForHire(int gold, int hiringCost);
+
         int UpgradeItem(int skill, int mod);
     }
 

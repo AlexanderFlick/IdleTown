@@ -1,17 +1,16 @@
 ﻿using BLL.Models;
 using BLL.Models.Resources;
 using BLL.Models.Townspeople;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BLL.Services.WorkerServices
 {
     public interface IBlackSmithService
     {
         void Hire(Person person, Blacksmith blacksmith, Wheat wheat, Stone stone, Sickle sickle);
+
         void UpgradeSickle(Person person, Sickle sickle, Stone stone, Farmer farmer);
     }
+
     public class BlacksmithService : IBlackSmithService
     {
         private ITownsPeopleService _ts;
@@ -54,7 +53,7 @@ namespace BLL.Services.WorkerServices
         private void PayForBlacksmith(Person person, Blacksmith blacksmith, Wheat wheat, Stone stone)
         {
             person.Gold = _is.PayFor(person.Gold, blacksmith.Cost);
-            wheat.Total = _is.PayFor(wheat.Total, blacksmith.WheatCost);    
+            wheat.Total = _is.PayFor(wheat.Total, blacksmith.WheatCost);
             stone.Total = _is.PayFor(stone.Total, blacksmith.StoneCost);
         }
 
@@ -92,6 +91,5 @@ namespace BLL.Services.WorkerServices
             sickle.HarvestIncrease++;
             sickle.Quality = sickle.QualityTypes[sickle.UpgradeStatus];
         }
-
     }
 }

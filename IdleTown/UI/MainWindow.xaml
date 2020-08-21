@@ -50,22 +50,22 @@
                     <Image Height="408" VerticalAlignment="Center" Grid.ColumnSpan="3" Source="Background.png" Stretch="Fill" Margin="0,0,1,0" />
                     <Button Name="HireFarmerButton" Content="Hire Farmer" HorizontalAlignment="Left" Margin="145,96,0,0" VerticalAlignment="Top" Width="163" Click="HireFarmer" Height="27" RenderTransformOrigin="0.755,0.575" Grid.Column="1" IsEnabled="False" />
                     <TextBlock Name="farmerCost" HorizontalAlignment="Left" Margin="156,54,0,0" Text="Gold To Hire Farmer: 20" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="142" Grid.Column="1" IsEnabled="False" />
-                    <Button Name="HireMinerButton" Content="Hire Miner" HorizontalAlignment="Left" Margin="346,96,0,0" VerticalAlignment="Top" Width="164" Click="HireMiner" Height="27" Grid.Column="1" IsEnabled="False"/>
+                    <Button Name="HireMinerButton" Content="Hire Miner" HorizontalAlignment="Left" Margin="346,96,0,0" VerticalAlignment="Top" Width="164" Click="HireMiner" Height="27" Grid.Column="1" IsEnabled="False" />
                     <TextBlock Name="minerCost" HorizontalAlignment="Left" Margin="360,72,0,0" Text="Gold To Hire Miner: 50" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="150" Grid.Column="1" IsEnabled="False" />
                     <TextBlock Name="minerWheatCost" Grid.Column="1" HorizontalAlignment="Left" Margin="360,51,0,0" Text="Wheat to Hire Miner: 10" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="150" IsEnabled="False" />
                     <Button Name="HireMerchantButton" Content="Hire Merchant" HorizontalAlignment="Left" Margin="20,96,0,0" VerticalAlignment="Top" Width="163" Click="HireMerchant" Height="27" RenderTransformOrigin="0.755,0.575" Grid.ColumnSpan="2" />
                     <TextBlock Name="merchantWheatCost" HorizontalAlignment="Left" Margin="20,57,0,0" Text="Wheat To Hire Merchant: 20" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="163" Grid.ColumnSpan="2" />
-                    <TextBlock Name="MerchantPurchased" Text="" TextWrapping="Wrap" Grid.ColumnSpan="2" Margin="70,67,649,317" IsEnabled="False"/>
-                    <TextBlock x:Name="FarmerPurchased" Grid.Column="1" HorizontalAlignment="Left" Margin="202,75,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="96"/>
-                    <TextBlock Name="BlacksmithWheatCost"  Grid.Column="1" HorizontalAlignment="Left" Margin="549,29,0,0" Text="Wheat to Hire Blacksmith: 10" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="BlacksmithStoneCost" Grid.Column="1" HorizontalAlignment="Left" Margin="549,50,0,0" Text="Stone to Hire Blacksmith: 10" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
-                    <TextBlock x:Name="BlacksmithGoldCost" Grid.Column="1" HorizontalAlignment="Left" Margin="549,70,0,0" Text="Gold to Hire Blacksmith: 10" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                    <Button x:Name="BlacksmithButton" Content="Hire Blacksmith" Grid.Column="1" HorizontalAlignment="Left" Margin="543,95,0,0" VerticalAlignment="Top" Width="164" Height="28" IsEnabled="False" Click="HireBlacksmith"/>
-                    <TextBlock Name="SickleInfoText" Grid.Column="1" HorizontalAlignment="Left" Margin="166,142,0,0" Text="Ask Blacksmith to Upgrade Sickle to Increase Farmer Harvest Rate" TextWrapping="Wrap" VerticalAlignment="Top" Height="73" Width="132"/>
-                    <TextBlock x:Name="sickleGoldCost" HorizontalAlignment="Left" Margin="166,272,0,0" Text="Gold to Buy Sickle: 10" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"/>
-                    <Button x:Name="sickleButton" Content="Upgrade" Grid.Column="1" HorizontalAlignment="Left" Margin="166,297,0,0" VerticalAlignment="Top" Width="115" Height="27" IsEnabled="False" Click="UpgradeSickle"/>
-                    <TextBlock x:Name="sickleStoneCost" Grid.Column="1" HorizontalAlignment="Left" Margin="150,251,0,0" Text="Stone to Upgrade Sickle: 10" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="sickleQuality" Grid.Column="1" HorizontalAlignment="Left" Margin="188,235,0,0" Text="Sickle Quality: " TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <TextBlock Name="MerchantPurchased" Text="" TextWrapping="Wrap" Grid.ColumnSpan="2" Margin="70,67,649,317" IsEnabled="False" />
+                    <TextBlock x:Name="FarmerPurchased" Grid.Column="1" HorizontalAlignment="Left" Margin="202,75,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="96" />
+                    <TextBlock Name="BlacksmithWheatCost"  Grid.Column="1" HorizontalAlignment="Left" Margin="549,29,0,0" Text="Wheat to Hire Blacksmith: 10" TextWrapping="Wrap" VerticalAlignment="Top" />
+                    <TextBlock x:Name="BlacksmithStoneCost" Grid.Column="1" HorizontalAlignment="Left" Margin="549,50,0,0" Text="Stone to Hire Blacksmith: 10" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" />
+                    <TextBlock x:Name="BlacksmithGoldCost" Grid.Column="1" HorizontalAlignment="Left" Margin="549,70,0,0" Text="Gold to Hire Blacksmith: 10" TextWrapping="Wrap" VerticalAlignment="Top" />
+                    <Button x:Name="BlacksmithButton" Content="Hire Blacksmith" Grid.Column="1" HorizontalAlignment="Left" Margin="543,95,0,0" VerticalAlignment="Top" Width="164" Height="28" IsEnabled="False" Click="HireBlacksmith" />
+                    <TextBlock Name="SickleInfoText" Grid.Column="1" HorizontalAlignment="Left" Margin="166,142,0,0" Text="Ask Blacksmith to Upgrade Sickle to Increase Farmer Harvest Rate" TextWrapping="Wrap" VerticalAlignment="Top" Height="73" Width="132" />
+                    <TextBlock x:Name="sickleGoldCost" HorizontalAlignment="Left" Margin="166,272,0,0" Text="Gold to Buy Sickle: 10" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" />
+                    <Button x:Name="sickleButton" Content="Upgrade" Grid.Column="1" HorizontalAlignment="Left" Margin="166,297,0,0" VerticalAlignment="Top" Width="115" Height="27" IsEnabled="False" Click="UpgradeSickle" />
+                    <TextBlock x:Name="sickleStoneCost" Grid.Column="1" HorizontalAlignment="Left" Margin="150,251,0,0" Text="Stone to Upgrade Sickle: 10" TextWrapping="Wrap" VerticalAlignment="Top" />
+                    <TextBlock x:Name="sickleQuality" Grid.Column="1" HorizontalAlignment="Left" Margin="188,235,0,0" Text="Sickle Quality: " TextWrapping="Wrap" VerticalAlignment="Top" />
                 </Grid>
             </TabItem>
             <TabItem Name="MarketTab" Header="Market" Margin="80,1,-138,-2" IsEnabled="False">

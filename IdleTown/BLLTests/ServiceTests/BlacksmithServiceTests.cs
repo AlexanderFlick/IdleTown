@@ -4,9 +4,6 @@ using BLL.Services;
 using BLL.Services.WorkerServices;
 using NSubstitute;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BLLTests.ServiceTests
 {
@@ -57,7 +54,6 @@ namespace BLLTests.ServiceTests
         [Test]
         public void IfYouUpgradeSickle_FarmerWheatPerSecondIncreases()
         {
-
         }
 
         private Blacksmith GenerateTestBlacksmith()
@@ -88,6 +84,7 @@ namespace BLLTests.ServiceTests
                 PerClick = 1,
             };
         }
+
         private Stone GenerateTestStone()
         {
             return new Stone
@@ -97,6 +94,7 @@ namespace BLLTests.ServiceTests
                 PerClick = 1,
             };
         }
+
         private Farmer GenerateTestFarmer()
         {
             return new Farmer

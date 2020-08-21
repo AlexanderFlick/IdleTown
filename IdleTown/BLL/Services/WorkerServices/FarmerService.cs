@@ -1,6 +1,5 @@
 ﻿using BLL.Models;
 using BLL.Models.Resources;
-using BLL.Models.Townspeople;
 
 namespace BLL.Services
 {

@@ -71,8 +71,6 @@ namespace IsThisThingOn
             UpdateStoneText();
         }
 
-        
-
         private void UpdateTownsPeopleText()
         {
             farmerCost.Text = "Gold to Hire Farmer: " + farmers.Cost;
@@ -170,6 +168,7 @@ namespace IsThisThingOn
             merchant.SellWheat(person, merchants, wheats);
             UpdateWheatText();
         }
+
         private void UpdateMarketText()
         {
             stoneMarketPrices.Text = "Stone Price: $" + merchants.StonePrice;
