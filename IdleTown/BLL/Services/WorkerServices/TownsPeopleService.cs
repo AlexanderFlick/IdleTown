@@ -1,4 +1,6 @@
-﻿namespace BLL.Services
+﻿using BLL.Models.Global;
+
+namespace BLL.Services
 {
     public interface ITownsPeopleService
     {
@@ -38,6 +40,11 @@
         {
             skill *= mod;
             return mod;
+        }
+
+        public int IncreaseItemCost(BasicItem item)
+        {
+            return item.GoldCost;
         }
     }
 }

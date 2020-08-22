@@ -229,7 +229,7 @@ namespace IsThisThingOn
 
         private void UpgradeSickle(object sender, RoutedEventArgs e)
         {
-            blacksmith.UpgradeSickle(person, sickles, stones, farmers);
+            blacksmith.UpgradeSickle(person, sickles, stones);
             UpdateWheatText();
             UpdateStoneText();
             UpdateTownsPeopleText();
