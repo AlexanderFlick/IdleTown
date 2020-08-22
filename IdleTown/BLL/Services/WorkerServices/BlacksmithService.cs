@@ -8,7 +8,7 @@ namespace BLL.Services.WorkerServices
     {
         void Hire(Person person, Blacksmith blacksmith, Wheat wheat, Stone stone, Sickle sickle);
 
-        void UpgradeSickle(Person person, Sickle sickle, Stone stone, Farmer farmer);
+        void UpgradeSickle(Person person, Sickle sickle, Stone stone);
     }
 
     public class BlacksmithService : IBlackSmithService
@@ -57,7 +57,7 @@ namespace BLL.Services.WorkerServices
             stone.Total = _is.PayFor(stone.Total, blacksmith.StoneCost);
         }
 
-        public void UpgradeSickle(Person person, Sickle sickle, Stone stone, Farmer farmer)
+        public void UpgradeSickle(Person person, Sickle sickle, Stone stone)
         {
             sickle.Active = PayForSickle(person, sickle, stone);
             if (sickle.Active)
