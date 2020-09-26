@@ -12,6 +12,6 @@ namespace BLL.Models.Items
     public class Stone : Resource
     {
         public string Quality { get; set; }
-        Quality Type { get; set; }
+        public Quality Type { get; set; }
     }
 }
