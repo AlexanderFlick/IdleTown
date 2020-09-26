@@ -6,7 +6,7 @@
         mc:Ignorable="d"
         Title="Idle Town" Height="550" Width="854" Loaded="Window_Loaded">
     <Canvas>
-        <Button Content="Get Stone" Canvas.Left="146" Canvas.Top="194" Width="100"/>
-        <TextBlock Canvas.Left="196" Canvas.Top="150" Text="0/10" TextWrapping="Wrap"/>
+        <Button Content="Get Stone" Canvas.Left="146" Canvas.Top="194" Width="100" />
+        <TextBlock Canvas.Left="196" Canvas.Top="150" Text="0/10" TextWrapping="Wrap" />
     </Canvas>
 </Window>

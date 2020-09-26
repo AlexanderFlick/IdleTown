@@ -6,6 +6,6 @@ namespace BLL.Models
     public class Player
     {
         public int StoneMax { get; set; }
-        public List<Stone> Stones { get; set; }
+        public Minecart Minecart { get; set; }
     }
 }

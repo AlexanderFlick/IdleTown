@@ -4,7 +4,8 @@ using System.Text;
 
 namespace BLL.Models.Items
 {
-    public class Resource
+    public class Minecart
     {
+        List<Stone> Stones { get; set; }
     }
 }
