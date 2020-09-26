@@ -1,6 +1,17 @@
-﻿namespace BLL.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BLL.Models.Items
 {
-    public class Stone : BasicResource
+    public enum Quality
     {
+        Rock, Iron,
+    }
+
+    public class Stone : Resource
+    {
+        public string Quality { get; set; }
+        Quality Type { get; set; }
     }
 }

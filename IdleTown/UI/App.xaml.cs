@@ -1,6 +1,4 @@
-﻿using BLL.Services;
-using BLL.Services.WorkerServices;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows;
@@ -28,15 +26,6 @@ namespace IsThisThingOn
         private void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient(typeof(MainWindow));
-            services.AddSingleton<IItemService, ItemService>();
-            services.AddSingleton<IWheatService, WheatService>();
-            services.AddSingleton<ITimerService, TimerService>();
-            services.AddSingleton<IStoneService, StoneService>();
-            services.AddSingleton<IFarmerService, FarmerService>();
-            services.AddSingleton<IMinerService, MinerService>();
-            services.AddSingleton<IBlackSmithService, BlacksmithService>();
-            services.AddSingleton<IMerchantService, MerchantService>();
-            services.AddSingleton<ITownsPeopleService, TownsPeopleService>();
         }
     }
 }

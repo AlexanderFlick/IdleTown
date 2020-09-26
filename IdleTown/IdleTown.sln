@@ -7,14 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{9
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLLTests", "BLLTests\BLLTests.csproj", "{A9AB8DD3-DD19-4A65-A0E3-E505650AAE5A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{19E08FBA-0779-4B2A-A7C8-E9C6BBE5EDFA}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\Pictures\IsThisThingOn\Background.png = ..\..\..\..\Pictures\IsThisThingOn\Background.png
-		..\..\..\..\Pictures\IsThisThingOn\Wheat.png = ..\..\..\..\Pictures\IsThisThingOn\Wheat.png
-		..\..\..\..\Pictures\IsThisThingOn\Wheat1.png = ..\..\..\..\Pictures\IsThisThingOn\Wheat1.png
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{9810B61E-E49D-44B7-98AC-45334BA703F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "UI\UI.csproj", "{9810B61E-E49D-44B7-98AC-45334BA703F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
