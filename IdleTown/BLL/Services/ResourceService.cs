@@ -13,12 +13,22 @@ namespace BLL.Services
     {
         public Minecart AddStoneTo(Minecart minecart)
         {
-            if(minecart.Max > minecart.Stones.Count)
-            {
-                var stone = new Stone { Quality = StoneQuality.Good, };
-                minecart.Stones.Add(stone);
-            }
+            if (minecart.Max > minecart.Stones.Count)
+                minecart.Stones.Add(GetStone());
             return minecart;
+        }
+
+        public Stone GetStone()
+        {
+            return new Stone { Quality = StoneQuality.Good, };
+        }
+
+        public List<Resource> ReturnMinecartContentsTo(List<Resource> resources)
+        {
+            var chestContents = new List<Resource>();
+            foreach (var resource in resources)
+                chestContents.Add(resource);
+            return chestContents;
         }
     }
 }

@@ -7,5 +7,6 @@ namespace BLL.Models
     {
         public int StoneMax { get; set; }
         public Minecart Minecart { get; set; } = new Minecart();
+        public Chest Chest { get; set; } = new Chest();
     }
 }
