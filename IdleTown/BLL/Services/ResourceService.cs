@@ -14,11 +14,11 @@ namespace BLL.Services
         public Minecart AddStoneTo(Minecart minecart)
         {
             if (minecart.Max > minecart.Stones.Count)
-                minecart.Stones.Add(GetStone());
+                minecart.Stones.Add(Stone());
             return minecart;
         }
 
-        public Stone GetStone()
+        public Stone Stone()
         {
             return new Stone { Quality = StoneQuality.Good, };
         }
