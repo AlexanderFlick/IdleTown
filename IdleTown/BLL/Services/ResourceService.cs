@@ -22,23 +22,10 @@ namespace BLL.Services
             random = rand;
         }
 
-        public Stone Stone()
-        {
-            var stone = new Stone();
-            stone.Quality = GetStoneQuality();
-            return stone;
-        }
-
-        public StoneQuality GetStoneQuality()
-        {
-            StoneQuality stoneQuality = (random.Integer() > 50) ? StoneQuality.Good : StoneQuality.Great;
-            return stoneQuality;
-        }
-
         public Minecart AddStoneTo(Minecart minecart)
         {
             if (minecart.Max > minecart.Stones.Count)
-                minecart.Stones.Add(Stone());
+                minecart.Stones.Add(new Stone(random.Integer()));
             return minecart;
         }
 

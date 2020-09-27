@@ -80,7 +80,7 @@ namespace BLLTests.ServiceTests
             {
                 Chest = new Chest(),
                 Minecart = new Minecart { 
-                    Stones = { new Stone(), new Stone(), } },
+                    Stones = { new Stone(200), new Stone(200), } },
             };
         }
     }

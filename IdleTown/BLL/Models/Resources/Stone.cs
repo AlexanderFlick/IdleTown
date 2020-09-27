@@ -12,5 +12,16 @@ namespace BLL.Models.Items
     public class Stone : Resource
     {
         public StoneQuality Quality { get; set; }
+
+        public Stone(int qualityIndex)
+        {
+            Quality = GetStoneQuality(qualityIndex);
+        }
+
+        public StoneQuality GetStoneQuality(int qualityIndex)
+        {
+            StoneQuality stoneQuality = (qualityIndex > 50) ? StoneQuality.Good : StoneQuality.Great;
+            return stoneQuality;
+        }
     }
 }
