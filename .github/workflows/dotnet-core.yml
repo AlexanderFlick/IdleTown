@@ -21,7 +21,7 @@ jobs:
       with:
         dotnet-version: 3.1.301
     - name: Install dependencies
-      run: dotnet restore ./IdleTown
+      run: dotnet restore ./IdleTown/
     - name: Build
       run: dotnet build --configuration Release --no-restore ./IdleTown
     - name: Test
