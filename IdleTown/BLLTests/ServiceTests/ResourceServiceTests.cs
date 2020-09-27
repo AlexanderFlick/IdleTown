@@ -41,5 +41,38 @@ namespace BLLTests.ServiceTests
             var actual = player.Minecart.Stones.Count;
             Assert.AreEqual(expected, actual);
         }
+
+        [Test]
+        public void MinecartEmptiesContents()
+        {
+            var player = new Player();
+            player.Minecart = _sut.AddStoneTo(player.Minecart);
+            player.Minecart = _sut.EmptyContentsOf(player.Minecart);
+
+            var expected = 0;
+            var actual = player.Minecart.Stones.Count;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void MinecartContentsGetAddedToChest()
+        {
+            var player = GenerateTestPlayer();
+            player.Chest = _sut.PutMinecartContentsIntoChest(player.Minecart, player.Chest);
+            var expectedChestStoneCount = 2;
+            var actualChestStoneCount = player.Minecart.Stones.Count;
+
+            Assert.AreEqual(expectedChestStoneCount, actualChestStoneCount);
+        }
+
+        private Player GenerateTestPlayer()
+        {
+            return new Player
+            {
+                Chest = new Chest(),
+                Minecart = new Minecart { 
+                    Stones = { new Stone(), new Stone(), } },
+            };
+        }
     }
 }
