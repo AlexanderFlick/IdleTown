@@ -3,6 +3,8 @@ name: .NET Core
 on:
   push:
     branches: [ master ]
+    paths:
+    - 'IdleTown/Idletown.sln'
   pull_request:
     branches: [ master ]
 
