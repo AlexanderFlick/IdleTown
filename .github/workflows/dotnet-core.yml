@@ -6,6 +6,7 @@ on:
     paths: '/IdleTown/IdleTown.sln'
   pull_request:
     branches: [ master ]
+    paths: '/IdleTown/IdleTown.sln'
 
 jobs:
   build:
