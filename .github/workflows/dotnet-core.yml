@@ -3,10 +3,8 @@ name: .NET Core
 on:
   push:
     branches: [ master ]
-    paths: ./IdleTown
   pull_request:
     branches: [ master ]
-    paths: ./IdleTown
 
 jobs:
   build:
