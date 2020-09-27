@@ -3,14 +3,16 @@ name: .NET Core
 on:
   push:
     branches: [ master ]
-    paths: '/IdleTown/IdleTown.sln'
+    paths: ./IdleTown
   pull_request:
     branches: [ master ]
+    paths: ./IdleTown
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
+    
 
     steps:
     - uses: actions/checkout@v2
@@ -19,8 +21,8 @@ jobs:
       with:
         dotnet-version: 3.1.301
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore ./IdleTown/
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build --configuration Release --no-restore ./IdleTown
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test --no-restore --verbosity normal ./IdleTown
