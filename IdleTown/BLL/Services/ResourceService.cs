@@ -1,4 +1,5 @@
-﻿using BLL.Models.Items;
+﻿using BLL.Models;
+using BLL.Models.Items;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,10 +8,17 @@ namespace BLL.Services
 {
     public interface IResourceService
     {
-
+        Minecart AddStoneTo(Minecart minecart);
+        Minecart EmptyContentsOf(Minecart minecart);
+        Chest PutMinecartContentsIntoChest(Minecart minecart, Chest chest);
     }
     public class ResourceService : IResourceService
     {
+        public Stone Stone()
+        {
+            return new Stone { Quality = StoneQuality.Good, };
+        }
+
         public Minecart AddStoneTo(Minecart minecart)
         {
             if (minecart.Max > minecart.Stones.Count)
@@ -18,17 +26,17 @@ namespace BLL.Services
             return minecart;
         }
 
-        public Stone Stone()
+        public Minecart EmptyContentsOf(Minecart minecart)
         {
-            return new Stone { Quality = StoneQuality.Good, };
+            minecart.Stones.Clear();
+            return minecart;
         }
 
-        public List<Resource> ReturnMinecartContentsTo(List<Resource> resources)
+        public Chest PutMinecartContentsIntoChest(Minecart minecart, Chest chest)
         {
-            var chestContents = new List<Resource>();
-            foreach (var resource in resources)
-                chestContents.Add(resource);
-            return chestContents;
+            foreach (var stone in minecart.Stones)
+                chest.Contents.Add(stone);
+            return chest;
         }
     }
 }
