@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using BLL.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows;
@@ -26,6 +27,7 @@ namespace IsThisThingOn
         private void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient(typeof(MainWindow));
+            services.AddScoped<IResourceService, ResourceService>();
         }
     }
 }

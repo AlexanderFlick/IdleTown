@@ -6,6 +6,7 @@ namespace BLL.Models.Items
 {
     public class Minecart
     {
-        List<Stone> Stones { get; set; }
+        public List<Stone> Stones { get; set; } = new List<Stone>();
+        public int Max { get; set; } = 10;
     }
 }

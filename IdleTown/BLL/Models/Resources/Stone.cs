@@ -4,14 +4,13 @@ using System.Text;
 
 namespace BLL.Models.Items
 {
-    public enum Quality
+    public enum StoneQuality
     {
-        Rock, Iron,
+        Good, Great
     }
 
     public class Stone : Resource
     {
-        public string Quality { get; set; }
-        Quality Type { get; set; }
+        public StoneQuality Quality { get; set; }
     }
 }
