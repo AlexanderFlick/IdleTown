@@ -1,5 +1,6 @@
 ﻿using BLL.Models;
 using BLL.Models.Items;
+using BLL.Wrapper;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,9 +15,24 @@ namespace BLL.Services
     }
     public class ResourceService : IResourceService
     {
+        private readonly IRandom random;
+
+        public ResourceService(IRandom rand)
+        {
+            random = rand;
+        }
+
         public Stone Stone()
         {
-            return new Stone { Quality = StoneQuality.Good, };
+            var stone = new Stone();
+            stone.Quality = GetStoneQuality();
+            return stone;
+        }
+
+        public StoneQuality GetStoneQuality()
+        {
+            StoneQuality stoneQuality = (random.Integer() > 50) ? StoneQuality.Good : StoneQuality.Great;
+            return stoneQuality;
         }
 
         public Minecart AddStoneTo(Minecart minecart)

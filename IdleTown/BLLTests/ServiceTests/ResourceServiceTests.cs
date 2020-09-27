@@ -1,6 +1,8 @@
 ﻿using BLL.Models;
 using BLL.Models.Items;
 using BLL.Services;
+using BLL.Wrapper;
+using NSubstitute;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -15,7 +17,8 @@ namespace BLLTests.ServiceTests
         [SetUp]
         public void Setup()
         {
-            _sut = new ResourceService();
+            RandomWrapper random = Substitute.For<RandomWrapper>();
+            _sut = new ResourceService(random);
         }
 
         [Test]
@@ -63,6 +66,12 @@ namespace BLLTests.ServiceTests
             var actualChestStoneCount = player.Minecart.Stones.Count;
 
             Assert.AreEqual(expectedChestStoneCount, actualChestStoneCount);
+        }
+
+        [Test]
+        public void GivenDifferentValues_GetStoneQuality()
+        {
+
         }
 
         private Player GenerateTestPlayer()
