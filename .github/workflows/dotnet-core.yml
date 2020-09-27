@@ -21,11 +21,8 @@ jobs:
       with:
         dotnet-version: 3.1.301
     - name: Install dependencies
-      working-directory: ./IdleTown
-      run: dotnet restore
+      run: dotnet restore ./IdleTown
     - name: Build
-      working-directory: ./IdleTown
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build --configuration Release --no-restore ./IdleTown
     - name: Test
-      working-directory: ./IdleTown
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test --no-restore --verbosity normal ./IdleTown
