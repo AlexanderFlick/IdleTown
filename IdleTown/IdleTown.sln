@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdleTown", "IdleTown\IdleTown.csproj", "{E83A906E-4F01-473D-9128-257819439BA9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdleTown.BLL", "IdleTown.BLL\IdleTown.BLL.csproj", "{5FDEC11D-A9B8-483C-B004-2692A0854ADF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdleTown.BLL.Tests", "IdleTown.BLL.Tests\IdleTown.BLL.Tests.csproj", "{5A212CE9-5F32-474E-AC51-714D5888D0EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{E83A906E-4F01-473D-9128-257819439BA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E83A906E-4F01-473D-9128-257819439BA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E83A906E-4F01-473D-9128-257819439BA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FDEC11D-A9B8-483C-B004-2692A0854ADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FDEC11D-A9B8-483C-B004-2692A0854ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FDEC11D-A9B8-483C-B004-2692A0854ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FDEC11D-A9B8-483C-B004-2692A0854ADF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A212CE9-5F32-474E-AC51-714D5888D0EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A212CE9-5F32-474E-AC51-714D5888D0EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A212CE9-5F32-474E-AC51-714D5888D0EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A212CE9-5F32-474E-AC51-714D5888D0EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
