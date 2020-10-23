@@ -7,6 +7,7 @@ namespace IdleTown.BLL.Services
     public interface ITextService
     {
         string CountOfStonesIn(Minecart minecart);
+
         List<string> ContentsOf(Chest chest);
     }
 
@@ -28,9 +29,9 @@ namespace IdleTown.BLL.Services
         private string StoneWithGoodQualityIn(Chest chest)
         {
             var count = 0;
-            foreach(Stone stone in chest.Contents)
+            foreach (Stone stone in chest.Contents)
             {
-                if(stone.Quality == Qualities.Good)
+                if (stone.Quality == Qualities.Good)
                 {
                     count++;
                 }

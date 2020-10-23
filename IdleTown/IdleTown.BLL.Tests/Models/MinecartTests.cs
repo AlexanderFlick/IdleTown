@@ -2,9 +2,7 @@
 using IdleTown.BLL.Models.Resources;
 using IdleTown.BLL.Models.Tools;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace IdleTown.BLL.Tests.Models
 {
