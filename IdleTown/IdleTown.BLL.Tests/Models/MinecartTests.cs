@@ -19,7 +19,7 @@ namespace IdleTown.BLL.Tests.Models
         }
 
         [Test]
-        public void EmptyingTheMinecartReturnsNewMinecart()
+        public void EmptyingTheMinecartReturnsNewMinecartWithSameMax()
         {
             var expectedMinecart = new Minecart();
             _sut.Stones.Add(new Stone());

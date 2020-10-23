@@ -6,7 +6,8 @@ namespace IdleTown.BLL.Services
     public interface IMineService
     {
         Minecart AddStoneTo(Minecart minecart);
-        Chest BringStoneBackIntoTownFrom(Minecart minecart, Chest chest);
+        Chest PutMinecartContentsInChest(Minecart minecart, Chest chest);
+        Minecart EmptyContentsOf(Minecart minecart);
     }
 
     public class MineService : IMineService
@@ -18,7 +19,12 @@ namespace IdleTown.BLL.Services
             return minecart;
         }
 
-        public Chest BringStoneBackIntoTownFrom(Minecart minecart, Chest chest)
+        public Minecart EmptyContentsOf(Minecart minecart)
+        {
+            return minecart.Empty();
+        }
+
+        public Chest PutMinecartContentsInChest(Minecart minecart, Chest chest)
         {
             foreach (var stone in minecart.Stones)
                 chest.Contents.Add(stone);
