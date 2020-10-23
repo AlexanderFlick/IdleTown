@@ -17,7 +17,7 @@
 
     public static class StoneExtensionMethods
     {
-        public static Qualities ImproveQualityOf(this Stone stone)
+        public static Qualities ImproveQuality(this Stone stone)
         {
             return stone.Quality == Qualities.Good ? Qualities.Great : Qualities.Great;
         }
