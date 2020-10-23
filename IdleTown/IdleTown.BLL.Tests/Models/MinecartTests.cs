@@ -27,6 +27,14 @@ namespace IdleTown.BLL.Tests.Models
             _sut.Should().BeEquivalentTo(expectedMinecart);
         }
 
+        [Test]
+        public void IncreasingMinecartMax()
+        {
+            var expectedMinecart = new Minecart { Max = 15 };
+            var actual = _sut.IncreaseMax(5);
+            actual.Should().BeEquivalentTo(expectedMinecart);
+        }
+
         private Minecart MinecartWithThreeMax()
         {
             return new Minecart

@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using IdleTown.BLL.Models.Resources;
+﻿using IdleTown.BLL.Models.Resources;
+using System.Collections.Generic;
 
 namespace IdleTown.BLL.Models.Tools
 {

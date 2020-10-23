@@ -3,9 +3,7 @@ using IdleTown.BLL.Models.Resources;
 using IdleTown.BLL.Models.Tools;
 using IdleTown.BLL.Services;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace IdleTown.BLL.Tests.Services
 {
@@ -23,7 +21,7 @@ namespace IdleTown.BLL.Tests.Services
         public void AddingStoneToCartAddsNewStone()
         {
             var minecart = new Minecart();
-            var expectedMinecart = new Minecart 
+            var expectedMinecart = new Minecart
             {
                 Max = 10,
                 Stones = new List<Stone> { new Stone() }

@@ -17,5 +17,11 @@ namespace IdleTown.BLL.Models.Tools
             newCart.Max = minecart.Max;
             return newCart;
         }
+
+        public static Minecart IncreaseMax(this Minecart minecart, int inc)
+        {
+            minecart.Max += inc;
+            return minecart;
+        }
     }
 }

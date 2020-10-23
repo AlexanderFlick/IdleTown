@@ -7,7 +7,7 @@ namespace IdleTown.BLL.Tests.Models
     public class StoneTests
     {
         private Stone _sut;
-        
+
         [SetUp]
         public void Setup()
         {
