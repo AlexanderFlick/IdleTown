@@ -1,3 +1,4 @@
+using IdleTown.BLL.Services;
 using IdleTown.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,6 +24,8 @@ namespace IdleTown
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            services.AddSingleton<ITextService, TextService>();
+            services.AddSingleton<IMineService, MineService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

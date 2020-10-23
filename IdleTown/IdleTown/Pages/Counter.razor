@@ -1,16 +1,23 @@
 ﻿@page "/mine"
 
-<h1>Counter</h1>
+@using BLL.Models.Tools
+@using BLL.Services
+@inject IMineService mineservice
+@inject ITextService textservice
 
-<p>Current count: @currentCount</p>
+<h1>Welcome To the Mine</h1>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<p> @stoneText</p>
+
+<button class="btn btn-primary" @onclick="GatherStone">Gather Stone</button>
 
 @code {
-    private int currentCount = 0;
+    private string stoneText;
+    public Minecart minecart = new Minecart();
 
-    private void IncrementCount()
+    private void GatherStone()
     {
-        currentCount++;
+        minecart = mineservice.AddStoneTo(minecart);
+        stoneText = textservice.CountOfStonesIn(minecart);
     }
 }
