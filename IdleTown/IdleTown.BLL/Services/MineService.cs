@@ -6,6 +6,7 @@ namespace IdleTown.BLL.Services
     public interface IMineService
     {
         Minecart AddStoneTo(Minecart minecart);
+        Chest BringStoneBackIntoTownFrom(Minecart minecart, Chest chest);
     }
 
     public class MineService : IMineService

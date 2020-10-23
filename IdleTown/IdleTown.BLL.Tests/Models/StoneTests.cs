@@ -1,9 +1,6 @@
 ﻿using FluentAssertions;
 using IdleTown.BLL.Models.Resources;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace IdleTown.BLL.Tests.Models
 {

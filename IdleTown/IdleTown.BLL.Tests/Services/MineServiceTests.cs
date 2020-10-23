@@ -23,13 +23,10 @@ namespace IdleTown.BLL.Tests.Services
         public void AddingStoneToCartAddsNewStone()
         {
             var minecart = new Minecart();
-            var expectedMinecart = new Minecart
+            var expectedMinecart = new Minecart 
             {
                 Max = 10,
-                Stones = new List<Stone>
-                {
-                    new Stone(),
-                }
+                Stones = new List<Stone> { new Stone() }
             };
             var actual = _sut.AddStoneTo(minecart);
             actual.Should().BeEquivalentTo(expectedMinecart);
@@ -38,29 +35,26 @@ namespace IdleTown.BLL.Tests.Services
         [Test]
         public void CanNotGainMoreStoneThanMinecartMax()
         {
-            var minecart = new Minecart
-            {
-                Max = 3,
-                Stones = new List<Stone>
-                {
-                    new Stone(),
-                    new Stone(),
-                    new Stone(),
-                }
-            };
-            var expectedMinecart = new Minecart
-            {
-                Max = 3,
-                Stones = new List<Stone>
-                {
-                    new Stone(),
-                    new Stone(),
-                    new Stone(),
-                }
-            };
+            var minecart = MinecartWithThreeMax();
+            var expectedMinecart = MinecartWithThreeMax();
+
             var actual = _sut.AddStoneTo(minecart);
             actual.Stones.Count.Should().Be(3);
             actual.Should().BeEquivalentTo(expectedMinecart);
+        }
+
+        private Minecart MinecartWithThreeMax()
+        {
+            return new Minecart
+            {
+                Max = 3,
+                Stones = new List<Stone>
+                {
+                    new Stone(),
+                    new Stone(),
+                    new Stone(),
+                }
+            };
         }
     }
 }
