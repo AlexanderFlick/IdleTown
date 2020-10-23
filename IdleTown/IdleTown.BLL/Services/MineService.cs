@@ -7,6 +7,7 @@ namespace IdleTown.BLL.Services
     {
         Minecart AddStoneTo(Minecart minecart);
     }
+
     public class MineService : IMineService
     {
         public Minecart AddStoneTo(Minecart minecart)
@@ -14,6 +15,13 @@ namespace IdleTown.BLL.Services
             if (minecart.Max > minecart.Stones.Count)
                 minecart.Stones.Add(new Stone());
             return minecart;
+        }
+
+        public Chest BringStoneBackIntoTownFrom(Minecart minecart, Chest chest)
+        {
+            foreach (var stone in minecart.Stones)
+                chest.Contents.Add(stone);
+            return chest;
         }
     }
 }

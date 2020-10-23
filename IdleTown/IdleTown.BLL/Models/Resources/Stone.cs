@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace IdleTown.BLL.Models.Resources
+﻿namespace IdleTown.BLL.Models.Resources
 {
     public enum Qualities
     {
         Good, Great
     }
+
     public class Stone : Resource
     {
         public Stone()
